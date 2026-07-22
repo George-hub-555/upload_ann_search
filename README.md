@@ -16,6 +16,9 @@ make -C build -j$(nproc) bench_glove
 
 ./bench_glove
 
+**#Add**
+faiss-main/bench_glove.cpp
+
 
 **#add to tutorial/cpp/CMakeLists.txt**
 add_executable(bench_glove EXCLUDE_FROM_ALL bench_glove.cpp)
