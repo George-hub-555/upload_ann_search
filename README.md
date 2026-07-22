@@ -49,3 +49,6 @@ Aborted (core dumped)
 scp 10.37.1.10:/home/tysearch/g500_test/faiss/faiss-main/bench_results.csv ./
 scp bench_glove_custom.cpp 10.37.1.10:/home/tysearch/g500_test/faiss/faiss-main/
 
+ssh 10.37.1.10 "rm /home/tysearch/g500_test/faiss/faiss-main/progress*.csv"
+scp 10.37.1.10:/home/tysearch/g500_test/faiss/faiss-main/progress*.csv ./Res/
+
