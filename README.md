@@ -16,6 +16,23 @@ make -C build -j$(nproc) bench_glove
 
 ./bench_glove
 
+**Add parameters Version**
+# 编译（和原版一样）
+g++ -O3 -march=armv8-a -std=c++17 -I. -o bench_glove_custom bench_glove_custom.cpp \
+    -Lbuild/faiss -lfaiss -lopenblas -lpthread -Wl,-rpath,build/faiss
+
+# 例1：只取 20 万条向量，不出进度
+./bench_glove_custom -maxturn 200000
+
+# 例2：取 50 万条，每 1000 个 query 报一次进度
+./bench_glove_custom -maxturn 500000 -reportfreq 1000
+
+# 例3：改 k 值和 dataset 路径
+./bench_glove_custom -dataset dataset/glove.twitter.27B.200d.txt -k 20 -maxturn 300000 -reportfreq 500
+
+# 查看帮助
+./bench_glove_custom --help
+
 **#Add**
 faiss-main/bench_glove.cpp
 
