@@ -124,6 +124,21 @@ float* read_glove(const std::string& filename, size_t& d_out,
 }
 
 /* =============================================================
+ *  Pick the best m for PQ: largest divisor of d that is <= 64
+ *  (prefers values close to 8)
+ * ============================================================= */
+int best_pq_m(size_t d) {
+    int best = 1;
+    for (int m = 1; m <= (int)std::min(d, size_t(64)); m++) {
+        if (d % m == 0) {
+            if (best == 1 || std::abs(m - 8) < std::abs(best - 8))
+                best = m;
+        }
+    }
+    return best;
+}
+
+/* =============================================================
  *  Recall@k
  * ============================================================= */
 float compute_recall(const idx_t* I, const idx_t* gt, size_t nq, size_t k) {
@@ -347,10 +362,10 @@ int main(int argc, char** argv) {
      * ============================================================= */
     {
         int nlist = 100;
-        int m = 8;
+        int m = best_pq_m(d);
 
-        printf("[%.3f s] Training IVFPQ(nlist=%d, m=%d) ...\n",
-               elapsed() - t_start, nlist, m);
+        printf("[%.3f s] Training IVFPQ(nlist=%d, m=%d, dim=%zu) ...\n",
+               elapsed() - t_start, nlist, m, d);
 
         double t0 = elapsed();
         faiss::IndexFlatL2 quantizer(d);
