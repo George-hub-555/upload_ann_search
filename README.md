@@ -40,3 +40,8 @@ faiss-main/bench_glove.cpp
 **#add to tutorial/cpp/CMakeLists.txt**
 add_executable(bench_glove EXCLUDE_FROM_ALL bench_glove.cpp)
 target_link_libraries(bench_glove PRIVATE faiss)
+
+[0.110 s] Training IVFPQ(nlist=100, m=8) ...
+terminate called after throwing an instance of 'faiss::FaissException'
+  what():  Error in void faiss::ProductQuantizer::set_derived_values() at /home/tysearch/g500_test/faiss/faiss-main/faiss/impl/ProductQuantizer.cpp:64: Error: '!(d % M == 0)' failed: The dimension of the vector (d) should be a multiple of the number of subquantizers (M)
+Aborted (core dumped)
