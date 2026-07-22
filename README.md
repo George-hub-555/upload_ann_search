@@ -16,5 +16,7 @@ make -C build -j$(nproc) bench_glove
 
 ./bench_glove
 
+
+**#add to tutorial/cpp/CMakeLists.txt**
 add_executable(bench_glove EXCLUDE_FROM_ALL bench_glove.cpp)
 target_link_libraries(bench_glove PRIVATE faiss)
