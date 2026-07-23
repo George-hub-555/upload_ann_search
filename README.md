@@ -100,3 +100,28 @@ bazel build \
   --search_ranges=20,40,80,120,160,200,300,400 \
   --warmup=200 \
   --repeats=3
+
+uname -m
+aarch64
+command -v g++
+/usr/bin/g++
+g++ --version
+g++ (GCC) 10.3.1
+Copyright (C) 2020 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+command -v make
+/usr/bin/make
+make --version
+GNU Make 4.3
+Built for aarch64-openEuler-linux-gnu
+Copyright (C) 1988-2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+command -v cmake
+/usr/bin/cmake
+cmake --version
+cmake version 3.22.0
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
