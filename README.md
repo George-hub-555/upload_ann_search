@@ -125,3 +125,19 @@ cmake --version
 cmake version 3.22.0
 
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
+
+uname -m
+
+command -v g++
+g++ --version
+
+command -v cmake
+cmake --version
+
+command -v make
+make --version
+
+command -v protoc
+protoc --version
+
+ldconfig -p 2>/dev/null | grep -E "protobuf|gflags"
