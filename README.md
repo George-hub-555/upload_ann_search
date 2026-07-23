@@ -141,3 +141,39 @@ command -v protoc
 protoc --version
 
 ldconfig -p 2>/dev/null | grep -E "protobuf|gflags"
+
+uname -m
+aarch64
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ 
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ command -v g++
+/usr/bin/g++
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ g++ --version
+g++ (GCC) 10.3.1
+Copyright (C) 2020 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ 
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ command -v cmake
+/usr/bin/cmake
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ cmake --version
+cmake version 3.22.0
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ 
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ command -v make
+/usr/bin/make
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ make --version
+GNU Make 4.3
+Built for aarch64-openEuler-linux-gnu
+Copyright (C) 1988-2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ 
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ command -v protoc
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ protoc --version
+-bash: protoc: command not found
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ 
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ ldconfig -p 2>/dev/null | grep -E "protobuf|gflags"
+[tysearch@default-keplerengine-37-1-10 falcon-main]$ 
