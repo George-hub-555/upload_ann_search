@@ -177,3 +177,5 @@ There is NO WARRANTY, to the extent permitted by law.
 [tysearch@default-keplerengine-37-1-10 falcon-main]$ 
 [tysearch@default-keplerengine-37-1-10 falcon-main]$ ldconfig -p 2>/dev/null | grep -E "protobuf|gflags"
 [tysearch@default-keplerengine-37-1-10 falcon-main]$ 
+
+https://github.com/bazelbuild/bazel/releases/download/7.4.1/bazel-7.4.1-linux-arm64
