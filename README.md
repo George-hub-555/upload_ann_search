@@ -180,6 +180,13 @@ There is NO WARRANTY, to the extent permitted by law.
 
 https://github.com/bazelbuild/bazel/releases/download/7.4.1/bazel-7.4.1-linux-arm64
 
+g++ -O3 -march=armv8-a -std=c++17 -I. \
+  -o bench_sift_custom bench_sift_custom.cpp \
+  -Lbuild/faiss -lfaiss -lopenblas -fopenmp -lpthread \
+  -Wl,-rpath,build/faiss
+
+./bench_sift_custom -maxtrn 5000 -reportfreq 500 -k 10
+
 ./bench_sift_custom \
   -maxtrn 5000 \
   -reportfreq 500 \
