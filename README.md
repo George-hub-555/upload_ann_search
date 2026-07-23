@@ -52,3 +52,51 @@ scp bench_glove_custom.cpp 10.37.1.10:/home/tysearch/g500_test/faiss/faiss-main/
 ssh 10.37.1.10 "rm /home/tysearch/g500_test/faiss/faiss-main/progress*.csv"
 scp 10.37.1.10:/home/tysearch/g500_test/faiss/faiss-main/progress*.csv ./Res/
 
+cc_binary(
+    name = "sift1m_blink_graph_benchmark",
+    srcs = ["sift1m_blink_graph_benchmark.cpp"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//common/shard_format/bundles:bundle_file_reader",
+        "//common/shard_format/bundles:bundle_file_writer",
+        "//common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec:blink_graph_erq_builder",
+        "//common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec:blink_graph_erq_searcher_adaptive",
+        "//common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec:blink_graph_rabitq_builder",
+        "//common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec:blink_graph_rabitq_searcher",
+        "//common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec:blink_graph_rabitq_searcher_adaptive",
+        "//common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec:blink_graph_zsq_builder",
+        "//common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec:blink_graph_zsq_searcher_adaptive",
+        "@com_github_gflags_gflags//:gflags",
+    ],
+)
+
+bazel build \
+  --config=linux_arm64 \
+  --copt=-march=armv8.2-a+crypto+crc+dotprod \
+  --cxxopt=-march=armv8.2-a+crypto+crc+dotprod \
+  //tools/index_factory:sift1m_blink_graph_benchmark
+
+bazel build \
+  --config=linux_arm64 \
+  --copt=-march=armv8-a+fp+simd+crypto+crc \
+  --cxxopt=-march=armv8-a+fp+simd+crypto+crc \
+  //tools/index_factory:sift1m_blink_graph_benchmark
+
+./bazel-bin/tools/index_factory/sift1m_blink_graph_benchmark \
+  --base=dataset/sift_base.fvecs \
+  --query=dataset/sift_query.fvecs \
+  --groundtruth=dataset/sift_groundtruth.ivecs \
+  --index=dataset/sift1m_erq_blink_graph.index \
+  --csv=sift1m_arm_erq.csv \
+  --build=true \
+  --index_type=2 \
+  --dim=128 \
+  --base_limit=0 \
+  --query_limit=10000 \
+  --top_k=10 \
+  --thread_count=8 \
+  --link_range=32 \
+  --batch_size=1024 \
+  --search_ranges=20,40,80,120,160,200,300,400 \
+  --warmup=200 \
+  --repeats=3
