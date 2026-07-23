@@ -179,3 +179,9 @@ There is NO WARRANTY, to the extent permitted by law.
 [tysearch@default-keplerengine-37-1-10 falcon-main]$ 
 
 https://github.com/bazelbuild/bazel/releases/download/7.4.1/bazel-7.4.1-linux-arm64
+
+./bench_sift_custom \
+  -maxtrn 5000 \
+  -reportfreq 500 \
+  -k 10
+
