@@ -264,3 +264,20 @@ g++ -O3 -march=armv8-a -std=c++17 -I. \
   -m 64 \
   -k_reorder 10 \
   -k 10
+
+**glove200_faiss_ivfpqfs_codex:**
+g++ -O3 -march=armv8-a -std=c++17 -I. \
+  -o bench_glove200_faisspqfs bench_glove200_faisspqfs.cpp \
+  -Lbuild/faiss -lfaiss -lopenblas -fopenmp -lpthread \
+  -Wl,-rpath,build/faiss
+
+./bench_glove200_faisspqfs \
+  -dataset dataset/glove.twitter.27B.200d.txt \
+  -indexes all \
+  -nlist 128,256,512,1024,2048,4096 \
+  -nprobe 1,2,4,8,16,32,64,128,256 \
+  -m 100 \
+  -k_reorder 10 \
+  -k 10 \
+  -maxtrn 200000 \
+  -reportfreq 1000
