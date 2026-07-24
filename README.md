@@ -274,8 +274,8 @@ g++ -O3 -march=armv8-a -std=c++17 -I. \
 ./bench_glove200_faisspqfs \
   -dataset dataset/glove.twitter.27B.200d.txt \
   -indexes all \
-  -nlist 128,256,512,1024,2048,4096 \
-  -nprobe 1,2,4,8,16,32,64,128,256 \
+  -nlist 512,1024,2048,4096 \
+  -nprobe 1,2,4,8,16,32,64,128 \
   -m 100 \
   -k_reorder 10 \
   -k 10 \
