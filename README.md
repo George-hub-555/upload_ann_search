@@ -221,4 +221,46 @@ g++ -O3 -march=armv8-a -std=c++17 -I. -o bench_fastscan bench_fastscan.cpp \
   -m 64 \
   -nprobe_sweep 1,2,4,8,16,32,64,128,256 \
   -k_reorder 10
-  
+
+**sift_faiss_ivfpqfs_codex:**
+-nlist       IVF 倒排列表数量，默认 512
+-nprobe      每次查询探测列表数量，默认 5
+-m           PQ 子量化器数量，默认 64
+-k_reorder   精确重排倍率，0 表示关闭
+-bbs         FastScan 块大小，默认 32
+-k           Top-K
+-maxtrn      最大查询轮数
+-reportfreq  每多少轮在终端打印局部统计
+
+g++ -O3 -march=armv8-a -std=c++17 -I. \
+  -o bench_sift_faisspqfs bench_sift_faisspqfs.cpp \
+  -Lbuild/faiss -lfaiss -lopenblas -fopenmp -lpthread \
+  -Wl,-rpath,build/faiss
+
+./bench_sift_faisspqfs \
+  -indexes ivfpqfs \
+  -nlist 512 \
+  -nprobe 5 \
+  -m 64 \
+  -k_reorder 0 \
+  -k 10 \
+  -maxtrn 1000000 \
+  -reportfreq 1000
+
+./bench_sift_faisspqfs \
+  -indexes ivfflat,ivfpq,ivfpqfs \
+  -nlist 512 \
+  -nprobe 1,2,4,8,16,32,64,128 \
+  -m 64 \
+  -k_reorder 0 \
+  -k 10 \
+  -maxtrn 10000 \
+  -reportfreq 1000
+
+./bench_sift_faisspqfs \
+  -indexes ivfpqfs \
+  -nlist 512 \
+  -nprobe 5 \
+  -m 64 \
+  -k_reorder 10 \
+  -k 10
