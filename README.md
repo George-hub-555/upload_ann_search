@@ -46,6 +46,7 @@ terminate called after throwing an instance of 'faiss::FaissException'
   what():  Error in void faiss::ProductQuantizer::set_derived_values() at /home/tysearch/g500_test/faiss/faiss-main/faiss/impl/ProductQuantizer.cpp:64: Error: '!(d % M == 0)' failed: The dimension of the vector (d) should be a multiple of the number of subquantizers (M)
 Aborted (core dumped)
 
+**复制文件到目标机器**
 scp 10.37.1.10:/home/tysearch/g500_test/faiss/faiss-main/bench_results.csv ./
 scp bench_glove_custom.cpp 10.37.1.10:/home/tysearch/g500_test/faiss/faiss-main/
 
