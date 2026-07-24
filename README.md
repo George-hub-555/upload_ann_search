@@ -192,3 +192,54 @@ g++ -O3 -march=armv8-a -std=c++17 -I. \
   -reportfreq 500 \
   -k 10
 
+g++ -O3 -march=armv8-a -std=c++17 -I. -o bench_fastscan bench_fastscan.cpp \
+    -Lbuild/faiss -lfaiss -lopenblas -lpthread -Wl,-rpath,build/faiss
+
+./bench_fastscan \
+  -dataset dataset/glove.twitter.27B.200d.txt \
+  -k 10 \
+  -nlist 1204 \
+  -m 50 \
+  -nprobe_sweep 1,2,4,8,16,32,64,128,256 \
+  -reportfreq 1000
+
+./bench_fastscan \
+  -fvecs \
+  -dataset sift1M/sift_base.fvecs \
+  -learn sift1M/sift_learn.fvecs \
+  -query sift1M/sift_query.fvecs \
+  -gt sift1M/sift_groundtruth.ivecs \
+  -k 10 \
+  -nlist 4096 \
+  -m 16 \
+  -nprobe_sweep 1,4,16,64,256
+
+
+**sift_faiss_ivfpqfs:**
+g++ -O3 -march=armv8-a -std=c++17 -I. -o bench_fastscan bench_fastscan.cpp \
+    -Lbuild/faiss -lfaiss -lopenblas -lpthread -Wl,-rpath,build/faiss
+
+./bench_fastscan \
+  -fvecs \
+  -dataset dataset/sift_base.fvecs \
+  -learn dataset/sift_learn.fvecs \
+  -query dataset/sift_query.fvecs \
+  -gt dataset/sift_groundtruth.ivecs \
+  -k 10 \
+  -nlist 4096 \
+  -m 16 \
+  -nprobe_sweep 1,4,16,64,256 \
+  -k_reorder 0
+
+./bench_fastscan \
+  -fvecs \
+  -dataset dataset/sift_base.fvecs \
+  -learn dataset/sift_learn.fvecs \
+  -query dataset/sift_query.fvecs \
+  -gt dataset/sift_groundtruth.ivecs \
+  -k 10 \
+  -nlist 4096 \
+  -m 16 \
+  -nprobe_sweep 1,4,16,64,256 \
+  -k_reorder 10
+  
