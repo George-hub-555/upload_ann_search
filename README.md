@@ -254,7 +254,7 @@ g++ -O3 -march=armv8-a -std=c++17 -I. \
   -m 64 \
   -k_reorder 0 \
   -k 10 \
-  -maxtrn 10000 \
+  -maxtrn 1000000 \
   -reportfreq 1000
 
 ./bench_sift_faisspqfs \
