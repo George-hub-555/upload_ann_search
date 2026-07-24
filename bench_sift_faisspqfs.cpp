@@ -11,7 +11,7 @@
  *   ./bench_sift_faisspqfs
  *   ./bench_sift_faisspqfs -dataset dataset -k 10
  *   ./bench_sift_faisspqfs -indexes all -maxtrn 2000
- *   ./bench_sift_faisspqfs -nlist 512 -nprobe 5 -m 64 -k_reorder 0
+ *   ./bench_sift_faisspqfs -nlist 512 -nprobe 1,2,4,8,16,32,64,128 -m 64
  *
  * The dataset directory must contain:
  *   sift_learn.fvecs
@@ -133,6 +133,58 @@ int parse_int_arg(
                 std::string("value is too large for ") + flag);
     }
     return static_cast<int>(value);
+}
+
+std::vector<int> parse_int_list_arg(
+        int argc,
+        char** argv,
+        const char* flag,
+        const char* default_value) {
+    const std::string text =
+            arg_get_str(argc, argv, flag, default_value);
+    std::vector<int> values;
+    size_t start = 0;
+    while (start <= text.size()) {
+        const size_t comma = text.find(',', start);
+        const std::string token = text.substr(
+                start,
+                comma == std::string::npos ? std::string::npos
+                                           : comma - start);
+        if (token.empty() || token[0] == '-') {
+            throw std::runtime_error(
+                    std::string("invalid value for ") + flag + ": " + text);
+        }
+
+        errno = 0;
+        char* end = nullptr;
+        const unsigned long long value =
+                std::strtoull(token.c_str(), &end, 10);
+        if (errno == ERANGE || !end || *end != '\0' || value == 0 ||
+            value >
+                    static_cast<unsigned long long>(
+                            std::numeric_limits<int>::max())) {
+            throw std::runtime_error(
+                    std::string("invalid value for ") + flag + ": " + text);
+        }
+        values.push_back(static_cast<int>(value));
+
+        if (comma == std::string::npos) {
+            break;
+        }
+        start = comma + 1;
+    }
+    return values;
+}
+
+std::string join_int_list(const std::vector<int>& values) {
+    std::string text;
+    for (size_t i = 0; i < values.size(); ++i) {
+        if (i > 0) {
+            text += ',';
+        }
+        text += std::to_string(values[i]);
+    }
+    return text;
 }
 
 std::string join_path(const std::string& directory, const char* filename) {
@@ -374,7 +426,7 @@ void print_help(const char* program) {
     std::printf(
             "  -nlist       <int>   IVF cluster count (default: 512)\n");
     std::printf(
-            "  -nprobe      <int>   IVF lists probed per query (default: 5)\n");
+            "  -nprobe      <list>  one or comma-separated values (default: 5)\n");
     std::printf(
             "  -m           <int>   PQ subquantizer count (default: 64)\n");
     std::printf(
@@ -411,7 +463,8 @@ int benchmark_main(int argc, char** argv) {
     const int report_freq =
             parse_int_arg(argc, argv, "-reportfreq", 0);
     const int nlist = parse_int_arg(argc, argv, "-nlist", 512);
-    const int nprobe = parse_int_arg(argc, argv, "-nprobe", 5);
+    const std::vector<int> nprobes =
+            parse_int_list_arg(argc, argv, "-nprobe", "5");
     // -pq_m remains a compatibility alias; -m takes precedence.
     const int pq_m_compat = parse_int_arg(argc, argv, "-pq_m", 64);
     const int pq_m = parse_int_arg(argc, argv, "-m", pq_m_compat);
@@ -420,14 +473,16 @@ int benchmark_main(int argc, char** argv) {
     const int bbs = parse_int_arg(argc, argv, "-bbs", 32);
     const int hnsw_m = parse_int_arg(argc, argv, "-hnsw_m", 32);
 
-    if (k <= 0 || nlist <= 0 || nprobe <= 0 || pq_m <= 0 ||
-        bbs <= 0 || hnsw_m <= 0) {
+    if (k <= 0 || nlist <= 0 || pq_m <= 0 || bbs <= 0 ||
+        hnsw_m <= 0) {
         throw std::runtime_error(
-                "-k, -nlist, -nprobe, -m, -bbs and -hnsw_m must be "
-                "positive");
+                "-k, -nlist, -m, -bbs and -hnsw_m must be positive");
     }
-    if (nprobe > nlist) {
-        throw std::runtime_error("-nprobe must not exceed -nlist");
+    for (int nprobe : nprobes) {
+        if (nprobe > nlist) {
+            throw std::runtime_error(
+                    "every -nprobe value must not exceed -nlist");
+        }
     }
     if (bbs % 32 != 0) {
         throw std::runtime_error("-bbs must be a multiple of 32");
@@ -442,10 +497,11 @@ int benchmark_main(int argc, char** argv) {
             index_text.c_str(),
             k,
             max_trn);
+    const std::string nprobe_text = join_int_list(nprobes);
     std::printf(
-            "  nlist=%d  nprobe=%d  m=%d  k_reorder=%d  bbs=%d\n",
+            "  nlist=%d  nprobe=%s  m=%d  k_reorder=%d  bbs=%d\n",
             nlist,
-            nprobe,
+            nprobe_text.c_str(),
             pq_m,
             k_reorder,
             bbs);
@@ -676,13 +732,15 @@ int benchmark_main(int argc, char** argv) {
         index.add(static_cast<idx_t>(base.count), base.values.data());
         const double build_time = elapsed_seconds() - start;
 
-        index.nprobe = static_cast<size_t>(nprobe);
-        const std::string params =
-                "nlist=" + std::to_string(nlist) +
-                " nprobe=" + std::to_string(nprobe);
-        BenchResult result = run_search("IVFFlat", params, index);
-        result.build_time = build_time;
-        save_result(result);
+        for (int nprobe : nprobes) {
+            index.nprobe = static_cast<size_t>(nprobe);
+            const std::string params =
+                    "nlist=" + std::to_string(nlist) +
+                    " nprobe=" + std::to_string(nprobe);
+            BenchResult result = run_search("IVFFlat", params, index);
+            result.build_time = build_time;
+            save_result(result);
+        }
     }
 
     if (selected_indexes.count("ivfpq")) {
@@ -705,14 +763,16 @@ int benchmark_main(int argc, char** argv) {
         index.add(static_cast<idx_t>(base.count), base.values.data());
         const double build_time = elapsed_seconds() - start;
 
-        index.nprobe = static_cast<size_t>(nprobe);
-        const std::string params =
-                "nlist=" + std::to_string(nlist) +
-                " nprobe=" + std::to_string(nprobe) +
-                " m=" + std::to_string(pq_m) + " nbits=8";
-        BenchResult result = run_search("IVFPQ", params, index);
-        result.build_time = build_time;
-        save_result(result);
+        for (int nprobe : nprobes) {
+            index.nprobe = static_cast<size_t>(nprobe);
+            const std::string params =
+                    "nlist=" + std::to_string(nlist) +
+                    " nprobe=" + std::to_string(nprobe) +
+                    " m=" + std::to_string(pq_m) + " nbits=8";
+            BenchResult result = run_search("IVFPQ", params, index);
+            result.build_time = build_time;
+            save_result(result);
+        }
     }
 
     if (selected_indexes.count("ivfpqfs")) {
@@ -736,20 +796,24 @@ int benchmark_main(int argc, char** argv) {
         index.train(
                 static_cast<idx_t>(train.count), train.values.data());
         index.add(static_cast<idx_t>(base.count), base.values.data());
-        index.nprobe = static_cast<size_t>(nprobe);
 
-        const std::string params =
-                "nlist=" + std::to_string(nlist) +
-                " nprobe=" + std::to_string(nprobe) +
-                " m=" + std::to_string(pq_m) +
-                " nbits=4 bbs=" + std::to_string(bbs) +
-                " k_reorder=" + std::to_string(k_reorder);
+        auto make_params = [&](int nprobe) {
+            return "nlist=" + std::to_string(nlist) +
+                    " nprobe=" + std::to_string(nprobe) +
+                    " m=" + std::to_string(pq_m) +
+                    " nbits=4 bbs=" + std::to_string(bbs) +
+                    " k_reorder=" + std::to_string(k_reorder);
+        };
 
         if (k_reorder == 0) {
             const double build_time = elapsed_seconds() - start;
-            BenchResult result = run_search("IVFPQfs", params, index);
-            result.build_time = build_time;
-            save_result(result);
+            for (int nprobe : nprobes) {
+                index.nprobe = static_cast<size_t>(nprobe);
+                BenchResult result =
+                        run_search("IVFPQfs", make_params(nprobe), index);
+                result.build_time = build_time;
+                save_result(result);
+            }
         } else {
             std::printf(
                     "[%.3f s] Building exact reorder layer "
@@ -760,9 +824,13 @@ int benchmark_main(int argc, char** argv) {
             faiss::IndexRefineFlat refine(&index, base.values.data());
             refine.k_factor = static_cast<float>(k_reorder);
             const double build_time = elapsed_seconds() - start;
-            BenchResult result = run_search("IVFPQfs", params, refine);
-            result.build_time = build_time;
-            save_result(result);
+            for (int nprobe : nprobes) {
+                index.nprobe = static_cast<size_t>(nprobe);
+                BenchResult result =
+                        run_search("IVFPQfs", make_params(nprobe), refine);
+                result.build_time = build_time;
+                save_result(result);
+            }
         }
     }
 
