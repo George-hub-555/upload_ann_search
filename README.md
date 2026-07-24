@@ -279,5 +279,5 @@ g++ -O3 -march=armv8-a -std=c++17 -I. \
   -m 100 \
   -k_reorder 10 \
   -k 10 \
-  -maxtrn 200000 \
+  -maxtrn 10000 \
   -reportfreq 1000
