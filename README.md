@@ -249,12 +249,12 @@ g++ -O3 -march=armv8-a -std=c++17 -I. \
 
 ./bench_sift_faisspqfs \
   -indexes ivfflat,ivfpq,ivfpqfs \
-  -nlist 512 \
+  -nlist 4096 \
   -nprobe 1,2,4,8,16,32,64,128 \
   -m 64 \
-  -k_reorder 0 \
+  -k_reorder 10 \
   -k 10 \
-  -maxtrn 1000000 \
+  -maxtrn 2000000 \
   -reportfreq 1000
 
 ./bench_sift_faisspqfs \
@@ -281,3 +281,23 @@ g++ -O3 -march=armv8-a -std=c++17 -I. \
   -k 10 \
   -maxtrn 10000 \
   -reportfreq 1000
+
+  {
+    "$schema": "https://opencode.ai/config.json",
+    "provider": {
+        "csi-provider": {
+            "name": "csi.ai",
+            "npm": "@ai-sdk/openai-compatible",
+            "options": {
+                "apiKey": "YOUR_API_KEY",
+                "baseURL": "http://113.46.219.251:8080/v1",
+                "setCacheKey": true
+            },
+            "models": {
+                "YOUR_MODEL_NAME": {
+                    "name": "YOUR_MODEL_NAME"
+                }
+            }
+        }
+    }
+}
