@@ -1,0 +1,130 @@
+1.
+index,params,recall@10,qps,build_time_s,queries
+IVFFlat,"nlist=1024 nprobe=1",0.397720,135977.43,14.029,10000
+IVFFlat,"nlist=1024 nprobe=2",0.553430,79929.33,14.029,10000
+IVFFlat,"nlist=1024 nprobe=4",0.708310,43240.13,14.029,10000
+IVFFlat,"nlist=1024 nprobe=8",0.837110,21701.08,14.029,10000
+IVFFlat,"nlist=1024 nprobe=16",0.926870,11956.06,14.029,10000
+IVFFlat,"nlist=1024 nprobe=32",0.976790,6124.13,14.029,10000
+IVFFlat,"nlist=1024 nprobe=64",0.995240,3071.81,14.029,10000
+IVFFlat,"nlist=1024 nprobe=128",0.999080,1607.52,14.029,10000
+IVFPQ,"nlist=1024 nprobe=1 m=64 nbits=8",0.389550,252046.63,23.825,10000
+IVFPQ,"nlist=1024 nprobe=2 m=64 nbits=8",0.534920,190514.98,23.825,10000
+IVFPQ,"nlist=1024 nprobe=4 m=64 nbits=8",0.671670,134050.17,23.825,10000
+IVFPQ,"nlist=1024 nprobe=8 m=64 nbits=8",0.774270,88720.38,23.825,10000
+IVFPQ,"nlist=1024 nprobe=16 m=64 nbits=8",0.835970,51940.05,23.825,10000
+IVFPQ,"nlist=1024 nprobe=32 m=64 nbits=8",0.865050,30334.08,23.825,10000
+IVFPQ,"nlist=1024 nprobe=64 m=64 nbits=8",0.874230,15659.27,23.825,10000
+IVFPQ,"nlist=1024 nprobe=128 m=64 nbits=8",0.876010,8730.39,23.825,10000
+IVFPQfs,"nlist=1024 nprobe=1 m=64 nbits=4 bbs=32 k_reorder=10",0.396940,207156.56,15.775,10000
+IVFPQfs,"nlist=1024 nprobe=2 m=64 nbits=4 bbs=32 k_reorder=10",0.551850,186423.25,15.775,10000
+IVFPQfs,"nlist=1024 nprobe=4 m=64 nbits=4 bbs=32 k_reorder=10",0.705550,181818.68,15.775,10000
+IVFPQfs,"nlist=1024 nprobe=8 m=64 nbits=4 bbs=32 k_reorder=10",0.832440,184942.88,15.775,10000
+IVFPQfs,"nlist=1024 nprobe=16 m=64 nbits=4 bbs=32 k_reorder=10",0.919960,173675.26,15.775,10000
+IVFPQfs,"nlist=1024 nprobe=32 m=64 nbits=4 bbs=32 k_reorder=10",0.967310,142145.93,15.775,10000
+IVFPQfs,"nlist=1024 nprobe=64 m=64 nbits=4 bbs=32 k_reorder=10",0.984440,112721.45,15.775,10000
+IVFPQfs,"nlist=1024 nprobe=128 m=64 nbits=4 bbs=32 k_reorder=10",0.987770,81887.53,15.775,10000
+2.
+index,params,recall@10,qps,build_time_s,queries
+IVFFlat,"nlist=1024 nprobe=1",0.397720,140302.70,14.153,10000
+IVFFlat,"nlist=1024 nprobe=2",0.553430,77435.06,14.153,10000
+IVFFlat,"nlist=1024 nprobe=4",0.708310,38454.20,14.153,10000
+IVFFlat,"nlist=1024 nprobe=8",0.837110,22577.41,14.153,10000
+IVFFlat,"nlist=1024 nprobe=16",0.926870,12085.90,14.153,10000
+IVFFlat,"nlist=1024 nprobe=32",0.976790,6270.35,14.153,10000
+IVFFlat,"nlist=1024 nprobe=64",0.995240,3123.99,14.153,10000
+IVFFlat,"nlist=1024 nprobe=128",0.999080,1609.48,14.153,10000
+IVFPQ,"nlist=1024 nprobe=1 m=64 nbits=8",0.389550,315312.79,24.677,10000
+IVFPQ,"nlist=1024 nprobe=2 m=64 nbits=8",0.534920,263647.74,24.677,10000
+IVFPQ,"nlist=1024 nprobe=4 m=64 nbits=8",0.671670,179547.24,24.677,10000
+IVFPQ,"nlist=1024 nprobe=8 m=64 nbits=8",0.774270,105694.10,24.677,10000
+IVFPQ,"nlist=1024 nprobe=16 m=64 nbits=8",0.835970,62404.57,24.677,10000
+IVFPQ,"nlist=1024 nprobe=32 m=64 nbits=8",0.865050,34068.75,24.677,10000
+IVFPQ,"nlist=1024 nprobe=64 m=64 nbits=8",0.874230,17265.02,24.677,10000
+IVFPQ,"nlist=1024 nprobe=128 m=64 nbits=8",0.876010,9114.12,24.677,10000
+IVFPQfs,"nlist=1024 nprobe=1 m=64 nbits=4 bbs=32 k_reorder=10",0.396940,316346.63,19.814,10000
+IVFPQfs,"nlist=1024 nprobe=2 m=64 nbits=4 bbs=32 k_reorder=10",0.551850,309981.61,19.814,10000
+IVFPQfs,"nlist=1024 nprobe=4 m=64 nbits=4 bbs=32 k_reorder=10",0.705550,245736.75,19.814,10000
+IVFPQfs,"nlist=1024 nprobe=8 m=64 nbits=4 bbs=32 k_reorder=10",0.832440,220837.78,19.814,10000
+IVFPQfs,"nlist=1024 nprobe=16 m=64 nbits=4 bbs=32 k_reorder=10",0.919960,196370.07,19.814,10000
+IVFPQfs,"nlist=1024 nprobe=32 m=64 nbits=4 bbs=32 k_reorder=10",0.967310,165275.22,19.814,10000
+IVFPQfs,"nlist=1024 nprobe=64 m=64 nbits=4 bbs=32 k_reorder=10",0.984440,135007.01,19.814,10000
+IVFPQfs,"nlist=1024 nprobe=128 m=64 nbits=4 bbs=32 k_reorder=10",0.987770,94918.76,19.814,10000
+3.
+index,params,recall@10,qps,build_time_s,queries
+IVFFlat,"nlist=1024 nprobe=1",0.397720,177148.19,14.150,10000
+IVFFlat,"nlist=1024 nprobe=2",0.553430,106877.32,14.150,10000
+IVFFlat,"nlist=1024 nprobe=4",0.708310,60156.93,14.150,10000
+IVFFlat,"nlist=1024 nprobe=8",0.837110,20590.00,14.150,10000
+IVFFlat,"nlist=1024 nprobe=16",0.926870,11224.56,14.150,10000
+IVFFlat,"nlist=1024 nprobe=32",0.976790,5943.73,14.150,10000
+IVFFlat,"nlist=1024 nprobe=64",0.995240,3069.08,14.150,10000
+IVFFlat,"nlist=1024 nprobe=128",0.999080,1677.46,14.150,10000
+IVFPQ,"nlist=1024 nprobe=1 m=64 nbits=8",0.389550,250732.07,24.475,10000
+IVFPQ,"nlist=1024 nprobe=2 m=64 nbits=8",0.534920,187806.72,24.475,10000
+IVFPQ,"nlist=1024 nprobe=4 m=64 nbits=8",0.671670,132956.61,24.475,10000
+IVFPQ,"nlist=1024 nprobe=8 m=64 nbits=8",0.774270,82375.79,24.475,10000
+IVFPQ,"nlist=1024 nprobe=16 m=64 nbits=8",0.835970,48440.20,24.475,10000
+IVFPQ,"nlist=1024 nprobe=32 m=64 nbits=8",0.865050,27319.37,24.475,10000
+IVFPQ,"nlist=1024 nprobe=64 m=64 nbits=8",0.874230,14503.39,24.475,10000
+IVFPQ,"nlist=1024 nprobe=128 m=64 nbits=8",0.876010,7882.88,24.475,10000
+IVFPQfs,"nlist=1024 nprobe=1 m=64 nbits=4 bbs=32 k_reorder=10",0.396940,185600.54,14.706,10000
+IVFPQfs,"nlist=1024 nprobe=2 m=64 nbits=4 bbs=32 k_reorder=10",0.551850,159526.63,14.706,10000
+IVFPQfs,"nlist=1024 nprobe=4 m=64 nbits=4 bbs=32 k_reorder=10",0.705550,167753.04,14.706,10000
+IVFPQfs,"nlist=1024 nprobe=8 m=64 nbits=4 bbs=32 k_reorder=10",0.832440,148173.41,14.706,10000
+IVFPQfs,"nlist=1024 nprobe=16 m=64 nbits=4 bbs=32 k_reorder=10",0.919960,154751.98,14.706,10000
+IVFPQfs,"nlist=1024 nprobe=32 m=64 nbits=4 bbs=32 k_reorder=10",0.967310,126874.02,14.706,10000
+IVFPQfs,"nlist=1024 nprobe=64 m=64 nbits=4 bbs=32 k_reorder=10",0.984440,94389.23,14.706,10000
+IVFPQfs,"nlist=1024 nprobe=128 m=64 nbits=4 bbs=32 k_reorder=10",0.987770,70838.95,14.706,10000
+4.
+index,params,recall@10,qps,build_time_s,queries
+IVFFlat,"nlist=1024 nprobe=1",0.397720,133574.53,14.138,10000
+IVFFlat,"nlist=1024 nprobe=2",0.553430,75150.17,14.138,10000
+IVFFlat,"nlist=1024 nprobe=4",0.708310,42053.40,14.138,10000
+IVFFlat,"nlist=1024 nprobe=8",0.837110,21351.62,14.138,10000
+IVFFlat,"nlist=1024 nprobe=16",0.926870,11314.50,14.138,10000
+IVFFlat,"nlist=1024 nprobe=32",0.976790,6400.22,14.138,10000
+IVFFlat,"nlist=1024 nprobe=64",0.995240,3163.33,14.138,10000
+IVFFlat,"nlist=1024 nprobe=128",0.999080,1632.20,14.138,10000
+IVFPQ,"nlist=1024 nprobe=1 m=64 nbits=8",0.389550,256545.23,24.094,10000
+IVFPQ,"nlist=1024 nprobe=2 m=64 nbits=8",0.534920,208335.35,24.094,10000
+IVFPQ,"nlist=1024 nprobe=4 m=64 nbits=8",0.671670,141966.84,24.094,10000
+IVFPQ,"nlist=1024 nprobe=8 m=64 nbits=8",0.774270,89288.08,24.094,10000
+IVFPQ,"nlist=1024 nprobe=16 m=64 nbits=8",0.835970,51907.03,24.094,10000
+IVFPQ,"nlist=1024 nprobe=32 m=64 nbits=8",0.865050,30349.30,24.094,10000
+IVFPQ,"nlist=1024 nprobe=64 m=64 nbits=8",0.874230,15396.94,24.094,10000
+IVFPQ,"nlist=1024 nprobe=128 m=64 nbits=8",0.876010,8688.13,24.094,10000
+IVFPQfs,"nlist=1024 nprobe=1 m=64 nbits=4 bbs=32 k_reorder=10",0.396940,227998.06,18.061,10000
+IVFPQfs,"nlist=1024 nprobe=2 m=64 nbits=4 bbs=32 k_reorder=10",0.551850,216939.00,18.061,10000
+IVFPQfs,"nlist=1024 nprobe=4 m=64 nbits=4 bbs=32 k_reorder=10",0.705550,199188.66,18.061,10000
+IVFPQfs,"nlist=1024 nprobe=8 m=64 nbits=4 bbs=32 k_reorder=10",0.832440,184468.70,18.061,10000
+IVFPQfs,"nlist=1024 nprobe=16 m=64 nbits=4 bbs=32 k_reorder=10",0.919960,164585.71,18.061,10000
+IVFPQfs,"nlist=1024 nprobe=32 m=64 nbits=4 bbs=32 k_reorder=10",0.967310,149732.78,18.061,10000
+IVFPQfs,"nlist=1024 nprobe=64 m=64 nbits=4 bbs=32 k_reorder=10",0.984440,119239.75,18.061,10000
+IVFPQfs,"nlist=1024 nprobe=128 m=64 nbits=4 bbs=32 k_reorder=10",0.987770,84604.82,18.061,10000
+5.
+index,params,recall@10,qps,build_time_s,queries
+IVFFlat,"nlist=1024 nprobe=1",0.397720,135456.34,14.250,10000
+IVFFlat,"nlist=1024 nprobe=2",0.553430,76417.99,14.250,10000
+IVFFlat,"nlist=1024 nprobe=4",0.708310,41935.53,14.250,10000
+IVFFlat,"nlist=1024 nprobe=8",0.837110,21195.06,14.250,10000
+IVFFlat,"nlist=1024 nprobe=16",0.926870,11561.62,14.250,10000
+IVFFlat,"nlist=1024 nprobe=32",0.976790,6201.66,14.250,10000
+IVFFlat,"nlist=1024 nprobe=64",0.995240,3078.52,14.250,10000
+IVFFlat,"nlist=1024 nprobe=128",0.999080,1627.73,14.250,10000
+IVFPQ,"nlist=1024 nprobe=1 m=64 nbits=8",0.389550,310783.72,23.956,10000
+IVFPQ,"nlist=1024 nprobe=2 m=64 nbits=8",0.534920,258658.87,23.956,10000
+IVFPQ,"nlist=1024 nprobe=4 m=64 nbits=8",0.671670,184189.13,23.956,10000
+IVFPQ,"nlist=1024 nprobe=8 m=64 nbits=8",0.774270,112702.25,23.956,10000
+IVFPQ,"nlist=1024 nprobe=16 m=64 nbits=8",0.835970,56599.49,23.956,10000
+IVFPQ,"nlist=1024 nprobe=32 m=64 nbits=8",0.865050,30871.79,23.956,10000
+IVFPQ,"nlist=1024 nprobe=64 m=64 nbits=8",0.874230,15492.59,23.956,10000
+IVFPQ,"nlist=1024 nprobe=128 m=64 nbits=8",0.876010,9047.37,23.956,10000
+IVFPQfs,"nlist=1024 nprobe=1 m=64 nbits=4 bbs=32 k_reorder=10",0.396940,207171.06,16.631,10000
+IVFPQfs,"nlist=1024 nprobe=2 m=64 nbits=4 bbs=32 k_reorder=10",0.551850,190768.26,16.631,10000
+IVFPQfs,"nlist=1024 nprobe=4 m=64 nbits=4 bbs=32 k_reorder=10",0.705550,192994.02,16.631,10000
+IVFPQfs,"nlist=1024 nprobe=8 m=64 nbits=4 bbs=32 k_reorder=10",0.832440,198878.22,16.631,10000
+IVFPQfs,"nlist=1024 nprobe=16 m=64 nbits=4 bbs=32 k_reorder=10",0.919960,176631.87,16.631,10000
+IVFPQfs,"nlist=1024 nprobe=32 m=64 nbits=4 bbs=32 k_reorder=10",0.967310,146686.85,16.631,10000
+IVFPQfs,"nlist=1024 nprobe=64 m=64 nbits=4 bbs=32 k_reorder=10",0.984440,113925.61,16.631,10000
+IVFPQfs,"nlist=1024 nprobe=128 m=64 nbits=4 bbs=32 k_reorder=10",0.987770,81982.43,16.631,10000
