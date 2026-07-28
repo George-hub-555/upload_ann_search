@@ -128,3 +128,6 @@ falcon_data/0/inverted_union/
 falcon_data/0/creative_id/
 falcon_data/0/relevance_softLtrAfmConditionv1/
 falcon_data/0/adgroup_id/
+
+falcon_data/0/relevance_softLtrAfmConditionv1/
+falcon_data/0/relevance_softLtrAfmConditionv1/section.relevance_softLtrAfmConditionv1.0
