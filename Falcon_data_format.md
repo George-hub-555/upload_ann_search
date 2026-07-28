@@ -131,3 +131,40 @@ falcon_data/0/adgroup_id/
 
 falcon_data/0/relevance_softLtrAfmConditionv1/
 falcon_data/0/relevance_softLtrAfmConditionv1/section.relevance_softLtrAfmConditionv1.0
+
+ssh user@<arm-machine>
+cd ~
+mkdir -p falcon && cd falcon
+tar xzf ~/falcon-src.tar.gz
+
+# 验证环境
+ls -lh devel/builder/bazel-7.4.1-linux-arm64   # 期望 58M（不是 133B）
+chmod +x devel/builder/bazel-7.4.1-linux-arm64
+export PATH="$PWD/devel/builder:$PATH"
+bazel version | head -1   # 7.4.1
+gcc --version | head -1   # 必须 11
+ldconfig -p | grep libnuma.so
+
+# 编译（不要数据，30~60 分钟首次）
+bazel build --config=linux_arm64 --copt=-g0 //tools/index_factory:build_local_v1
+ls -lh bazel-bin/tools/index_factory/build_local_v1
+
+# 准备数据到 dataset/
+mkdir -p dataset && cd dataset
+unzip ~/1kw_64dim_test_data.zip
+tar -xzf 1kw_64dim_test_data/falcon_data.tar.gz
+ls falcon_data/0/   # 5 个目录
+ls 1kw_64dim_test_data/index_model_relevance_softLtrAfmConditionv1   # 模型文件
+cd ~/falcon
+
+# 跑
+mkdir -p dataset/build_output
+./bazel-bin/tools/index_factory/build_local_v1 \
+  --schema_path=tools/index_factory/configs/build_local_v1_schema.json \
+  --data_path=dataset/falcon_data/0 \
+  --output_path=dataset/build_output \
+  --shard_id=0
+
+# 验证产物
+ls -lh dataset/build_output/
+# 预期：shard0.docids + shard0.section.relevance_softLtrAfmConditionv1 + shard0.meta + shard0.meta.json
