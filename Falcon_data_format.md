@@ -109,3 +109,6 @@ tar -tzf /tmp/falcon_data.tar.gz | grep '/$' | head -50
 
 # Step 4: 找 docids / meta / creative_id / relevance_softltpacer
 tar -tzf /tmp/falcon_data.tar.gz | grep -E "docids|\.meta$|creative_id|relevance_softltpacer" | head -30
+
+unzip "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" -d /tmp/
+ls -lh /tmp/1kw_64dim_test_data/falcon_data.tar.gz
