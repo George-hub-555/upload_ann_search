@@ -1,0 +1,49 @@
+{
+  "table_name": "ad_test_v1",
+  "doc_id_info": {
+    "name": "creative_id"
+  },
+  "section_infos": [
+    {
+      "name": "relevance_softLtrAfmConditionv1",
+      "doc_index": false,
+      "pos_index": false,
+      "vec_index": true,
+      "vector_info": {
+        "dimension": 64,
+        "thread_count": 24,
+        "is_multi_vector": false,
+        "embedding_id_hash_type": 0,
+        "distance_metric_type": 1,
+        "enable_embedding_score": false,
+        "cluster_ivf_config": {
+          "cluster_count": 2048,
+          "result_cluster": 64,
+          "cluster_posting_type": 1,
+          "has_cluster_ivf_index": true,
+          "cluster_ivf_section_type": 6,
+          "graph_section_config": {
+            "hnsw_config": {
+              "ef": 100,
+              "ef_construction": 200,
+              "is_hnsw_index": true,
+              "m": 16
+            }
+          }
+        },
+        "range": {
+          "name": "range_field",
+          "range_name_id": ""
+        },
+        "scalar": {
+          "enable": true,
+          "scalar_section": ["inverted_union"],
+          "faiss_model_path": ["dataset/1kw_64dim_test_data/index_model_relevance_softLtrAfmConditionv1"],
+          "filter_section_names": ["adgroup_id"]
+        }
+      }
+    }
+  ],
+  "sign": false,
+  "index_store_type": 1
+}
