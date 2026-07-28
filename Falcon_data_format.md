@@ -119,3 +119,12 @@ falcon_data/0/creative_id/
 falcon_data/0/creative_id/attachment.creative_id.0
 
 unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" | tar -tzf - | grep '/$'
+
+
+falcon_data/
+falcon_data/0/
+falcon_data/0/range_field/
+falcon_data/0/inverted_union/
+falcon_data/0/creative_id/
+falcon_data/0/relevance_softLtrAfmConditionv1/
+falcon_data/0/adgroup_id/
