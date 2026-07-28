@@ -112,3 +112,8 @@ tar -tzf /tmp/falcon_data.tar.gz | grep -E "docids|\.meta$|creative_id|relevance
 
 unzip "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" -d /tmp/
 ls -lh /tmp/1kw_64dim_test_data/falcon_data.tar.gz
+
+ unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" \
+>   | tar -tzf - | grep -E "docids|\.meta$|creative_id|relevance_softltpacer" | head -30
+falcon_data/0/creative_id/
+falcon_data/0/creative_id/attachment.creative_id.0
