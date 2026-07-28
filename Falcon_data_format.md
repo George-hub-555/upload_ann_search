@@ -1,4 +1,5 @@
 tar -xf "1kw_64dim_test_data.zip" -O "1kw_64dim_test_data/falcon_data.tar.gz" | tar -tf - | Select-Object -First 50
+tar -xf "1kw_64dim_test_data.zip" -O "1kw_64dim_test_data/falcon_data.tar.gz" | tar -tzf - | head -50
 
 bash: Select-Object: command not found
 tar: This does not look like a tar archive
