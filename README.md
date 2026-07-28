@@ -304,3 +304,11 @@ g++ -O3 -march=armv8-a -std=c++17 -I. \
 
 sk-uxqRBnpvlFAhazxcyMEQfg
 https://gitcode.com/org/openCsiTool/discussions/1
+
+
+1kw_64dim_test_data/
+1kw_64dim_test_data/index_model_relevance_softLtrAfmConditionv1
+1kw_64dim_test_data/conditionv1_3500_one_tier_log_form.txt
+1kw_64dim_test_data/falcon_data.tar.gz
+1kw_64dim_test_data/falcon_request_new.txt
+1kw_64dim_test_data/falcon_request.txt
