@@ -97,9 +97,15 @@ unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" \
 unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" \
   | tar -tzf - | grep -E "docids|\.meta$|creative_id|relevance_softltpacer" | head -30
 
-unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" \
-  | tar -xzf - -O "falcon_data/0/range_field/range.range_field.204" \
-  | head -c 64 | xxd
+# Step 1: 一次性把 tar.gz 抽到 /tmp（只一个文件，比全解数据小得多）
+unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" > /tmp/falcon_data.tar.gz
+ls -lh /tmp/falcon_data.tar.gz   # 看大小
 
-unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" \
-  | tar -tzf - | grep -E "docids|\.meta$|creative_id|relevance_softltpacer" | head -30
+# Step 2: 总文件数（知道规模）
+tar -tzf /tmp/falcon_data.tar.gz | wc -l
+
+# Step 3: 只看目录结构（过滤以 / 结尾的目录项，秒出）
+tar -tzf /tmp/falcon_data.tar.gz | grep '/$' | head -50
+
+# Step 4: 找 docids / meta / creative_id / relevance_softltpacer
+tar -tzf /tmp/falcon_data.tar.gz | grep -E "docids|\.meta$|creative_id|relevance_softltpacer" | head -30
