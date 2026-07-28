@@ -117,3 +117,5 @@ ls -lh /tmp/1kw_64dim_test_data/falcon_data.tar.gz
 >   | tar -tzf - | grep -E "docids|\.meta$|creative_id|relevance_softltpacer" | head -30
 falcon_data/0/creative_id/
 falcon_data/0/creative_id/attachment.creative_id.0
+
+unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" | tar -tzf - | grep '/$'
