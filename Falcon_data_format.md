@@ -100,3 +100,6 @@ unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" \
 unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" \
   | tar -xzf - -O "falcon_data/0/range_field/range.range_field.204" \
   | head -c 64 | xxd
+
+unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" \
+  | tar -tzf - | grep -E "docids|\.meta$|creative_id|relevance_softltpacer" | head -30
