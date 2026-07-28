@@ -90,3 +90,9 @@ falcon_data/0/range_field/range.range_field.873
 falcon_data/0/range_field/range.range_field.598
 falcon_data/0/range_field/range.range_field.507
 falcon_data/0/range_field/range.range_field.190
+
+unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" \
+  | tar -tzf - | grep -v "range_field" | head -100
+
+unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" \
+  | tar -tzf - | grep -E "docids|\.meta$|creative_id|relevance_softltpacer" | head -30
