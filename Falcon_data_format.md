@@ -35,3 +35,6 @@ tar: Exiting with failure status due to previous errors
 gzip: stdin: unexpected end of file
 tar: Child returned status 1
 tar: Error is not recoverable: exiting now
+
+unzip -l "1kw_64dim_test_data.zip"
+unzip -p "1kw_64dim_test_data.zip" "1kw_64dim_test_data/falcon_data.tar.gz" | tar -tzf - | head -50
