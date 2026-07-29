@@ -634,25 +634,12 @@ cc_binary(
 )
 
 cc_binary(
-    name = "build_local_1",
-    srcs = ["build_local_1.cpp"],
-    visibility = ["//visibility:public"],
-    deps = [
-        "//common/utils/filesystem:file",
-        "//index_factory/index_builder:index_builder_impl",
-        "//index_factory/native:libFalconBlacklist-lib",
-        "@com_github_gflags_gflags//:gflags",
-    ],
-)
-
-cc_binary(
     name = "build_local_v1",
     srcs = ["build_local_v1.cpp"],
     visibility = ["//visibility:public"],
     deps = [
         "//common/utils/filesystem:file",
         "//index_factory/index_builder:index_builder_impl",
-        "//index_factory/native:libFalconBlacklist-lib",
         "@com_github_gflags_gflags//:gflags",
     ],
 )
