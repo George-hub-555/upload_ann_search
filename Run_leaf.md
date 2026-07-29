@@ -19,3 +19,7 @@ $TEST_TMPDIR defined: output root default is '/opt/huawei/data3/g50064150/bazel-
 Extracting Bazel installation...
 Starting local Bazel server and connecting to it...
 ERROR: Config value 'linux_arm64' is not defined in any .rc file
+
+
+grep -n -- '--config=linux_arm64' \
+  tools/index_factory/run_local_leaf_arm64_bazel65.sh
