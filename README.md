@@ -514,3 +514,6 @@ https://gitcode.com/org/openCsiTool/discussions/1
     "sign": false,
     "index_store_type": 1
 }%
+
+**#git 登录**
+failed to authenticate via web browser: Post "https://github.com/login/device/code": dial tcp 20.205.243.166:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
