@@ -50,14 +50,14 @@ mkdir -p index_output
 cd /opt/huawei/data3/g50064150/falcon
 
 mkdir -p \
-  /opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_ouput
+  /opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_output
 
 chmod +x tools/index_factory/build_local_v1
 
 ./tools/index_factory/build_local_v1 \
   --schema_path=/opt/huawei/data3/g50064150/falcon/tools/index_factory/schema.json \
   --data_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/falcon_data/0 \
-  --output_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_ouput \
+  --output_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_output \
   --shard_id=0
   
 **#Error**
