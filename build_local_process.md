@@ -81,6 +81,6 @@ bazel build \
 如果 ARM 机器没有完整同版本仓库，仅复制这三个文件不够，因为该目标依赖整个 `common/`、`index_factory/` 和全部 Bazel 第三方配置；这种情况应复制整个源码仓库。
 
 
-./devel/builder/bazel-7.4.1-linux-arm64 build \
+./devel/builder/bazel-6.5.0-linux-arm64 build \
   --config=linux_arm64 \
   //tools/index_factory:build_local_v1
