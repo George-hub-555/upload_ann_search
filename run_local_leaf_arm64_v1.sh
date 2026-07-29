@@ -1,0 +1,297 @@
+#!/usr/bin/env bash
+#
+# Build and run Falcon leaf on an aarch64 Linux host with an index generated
+# by build_local_v1.
+#
+# Usage:
+#   bash tools/index_factory/run_local_leaf_arm64_v1.sh start [index_output] [port]
+#   bash tools/index_factory/run_local_leaf_arm64_v1.sh status [index_output] [port]
+#   bash tools/index_factory/run_local_leaf_arm64_v1.sh stop [index_output] [port]
+#   bash tools/index_factory/run_local_leaf_arm64_v1.sh logs [index_output] [port]
+#
+# Optional environment variables:
+#   BAZEL                 ARM64 Bazel executable
+#   LEAF_SERVER_IP        Listen address, default: 127.0.0.1
+#   LEAF_START_TIMEOUT    Startup timeout in seconds, default: 30
+#   LEAF_RUNTIME_ROOT     Directory for pid/log files, default: /tmp
+
+set -euo pipefail
+
+readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+readonly REPO_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd -P)"
+readonly HOST_ARCH="$(uname -m)"
+readonly BUNDLED_BAZEL="${REPO_ROOT}/devel/builder/bazel-7.4.1-linux-arm64"
+
+if [[ "${HOST_ARCH}" != "aarch64" && "${HOST_ARCH}" != "arm64" ]]; then
+    echo "ERROR: this script only supports aarch64/arm64; current architecture=${HOST_ARCH}" >&2
+    exit 2
+fi
+
+if [[ -n "${BAZEL:-}" ]]; then
+    BAZEL_CMD="${BAZEL}"
+elif [[ -x "${BUNDLED_BAZEL}" ]]; then
+    BAZEL_CMD="${BUNDLED_BAZEL}"
+else
+    BAZEL_CMD="bazel"
+fi
+readonly BAZEL_CMD
+
+readonly ACTION="${1:-start}"
+readonly INDEX_PATH_ARG="${2:-${REPO_ROOT}/index_output}"
+readonly LEAF_PORT="${3:-6635}"
+readonly LEAF_SERVER_IP="${LEAF_SERVER_IP:-127.0.0.1}"
+readonly START_TIMEOUT="${LEAF_START_TIMEOUT:-30}"
+readonly RUNTIME_ROOT="${LEAF_RUNTIME_ROOT:-${TMPDIR:-/tmp}}"
+readonly RUNTIME_DIR="${RUNTIME_ROOT%/}/falcon_local_leaf_arm64_v1_${LEAF_PORT}"
+readonly PID_FILE="${RUNTIME_DIR}/leaf.pid"
+readonly LOG_FILE="${RUNTIME_DIR}/leaf.log"
+
+print_usage()
+{
+    sed -n '4,16p' "$0"
+}
+
+validate_arguments()
+{
+    if [[ ! "${LEAF_PORT}" =~ ^[0-9]+$ ]] || ((LEAF_PORT < 1 || LEAF_PORT > 65535)); then
+        echo "ERROR: invalid leaf port: ${LEAF_PORT}" >&2
+        exit 2
+    fi
+    if [[ ! "${START_TIMEOUT}" =~ ^[0-9]+$ ]] || ((START_TIMEOUT < 1)); then
+        echo "ERROR: LEAF_START_TIMEOUT must be a positive integer" >&2
+        exit 2
+    fi
+}
+
+check_arm_cpu_features()
+{
+    if [[ ! -r /proc/cpuinfo ]]; then
+        echo "WARNING: cannot read /proc/cpuinfo; ARMv8.2 CPU features were not checked." >&2
+        return 0
+    fi
+
+    local features
+    features="$(grep -m1 -E '^Features[[:space:]]*:' /proc/cpuinfo || true)"
+    if [[ -z "${features}" ]]; then
+        echo "WARNING: ARM CPU feature list was not found in /proc/cpuinfo." >&2
+        return 0
+    fi
+
+    local missing=()
+    local feature
+    for feature in aes sha2 crc32; do
+        if [[ " ${features} " != *" ${feature} "* ]]; then
+            missing+=("${feature}")
+        fi
+    done
+    if [[ " ${features} " != *" asimddp "* && " ${features} " != *" dotprod "* ]]; then
+        missing+=("asimddp/dotprod")
+    fi
+
+    if ((${#missing[@]} > 0)); then
+        echo "WARNING: features required by --config=linux_arm64 were not all reported:" >&2
+        echo "  missing: ${missing[*]}" >&2
+        echo "The generated leaf may fail with an illegal-instruction error." >&2
+    fi
+}
+
+read_running_pid()
+{
+    if [[ ! -f "${PID_FILE}" ]]; then
+        return 1
+    fi
+
+    local pid
+    pid="$(<"${PID_FILE}")"
+    if [[ ! "${pid}" =~ ^[0-9]+$ ]] || ! kill -0 "${pid}" 2>/dev/null; then
+        return 1
+    fi
+    printf '%s\n' "${pid}"
+}
+
+validate_index_output()
+{
+    if [[ ! -d "${INDEX_PATH_ARG}" ]]; then
+        echo "ERROR: index output directory does not exist: ${INDEX_PATH_ARG}" >&2
+        exit 2
+    fi
+
+    INDEX_PATH="$(cd "${INDEX_PATH_ARG}" && pwd -P)"
+    readonly INDEX_PATH
+
+    local meta_files=("${INDEX_PATH}"/shard*.meta)
+    local docid_files=("${INDEX_PATH}"/shard*.docids)
+    local section_files=("${INDEX_PATH}"/shard*.section.*)
+    if [[ ! -e "${meta_files[0]}" ]]; then
+        echo "ERROR: no shard*.meta file found in ${INDEX_PATH}" >&2
+        exit 2
+    fi
+    if [[ ! -e "${docid_files[0]}" ]]; then
+        echo "ERROR: no shard*.docids file found in ${INDEX_PATH}" >&2
+        exit 2
+    fi
+    if [[ ! -e "${section_files[0]}" ]]; then
+        echo "ERROR: no shard*.section.* file found in ${INDEX_PATH}" >&2
+        exit 2
+    fi
+}
+
+build_leaf()
+{
+    if ! command -v "${BAZEL_CMD}" >/dev/null 2>&1; then
+        echo "ERROR: ARM64 Bazel executable not found: ${BAZEL_CMD}" >&2
+        echo "Expected bundled binary: ${BUNDLED_BAZEL}" >&2
+        exit 2
+    fi
+
+    echo "[1/3] Building ARM64 //falcon/serving/leaf/bootstrap:leaf"
+    (
+        cd "${REPO_ROOT}"
+        "${BAZEL_CMD}" build \
+            --config=linux_arm64 \
+            //falcon/serving/leaf/bootstrap:leaf
+    )
+
+    local bazel_bin
+    bazel_bin="$(
+        cd "${REPO_ROOT}"
+        "${BAZEL_CMD}" info --config=linux_arm64 bazel-bin
+    )"
+    LEAF_BINARY="${bazel_bin}/falcon/serving/leaf/bootstrap/leaf"
+    readonly LEAF_BINARY
+    if [[ ! -x "${LEAF_BINARY}" ]]; then
+        echo "ERROR: ARM64 leaf binary was not generated: ${LEAF_BINARY}" >&2
+        exit 1
+    fi
+}
+
+start_leaf()
+{
+    if [[ "$(id -u)" -eq 0 ]]; then
+        echo "ERROR: Falcon leaf refuses to run as root." >&2
+        echo "Run this script as a non-root user." >&2
+        exit 2
+    fi
+
+    check_arm_cpu_features
+    validate_index_output
+    mkdir -p "${RUNTIME_DIR}"
+
+    local running_pid
+    if running_pid="$(read_running_pid)"; then
+        echo "ERROR: leaf is already running, pid=${running_pid}, log=${LOG_FILE}" >&2
+        exit 1
+    fi
+    rm -f "${PID_FILE}"
+
+    build_leaf
+
+    echo "[2/3] Starting ARM64 leaf with local index: ${INDEX_PATH}"
+    nohup "${LEAF_BINARY}" \
+        --test_shard_path="${INDEX_PATH}" \
+        --server_ip="${LEAF_SERVER_IP}" \
+        --grpc_server_port="${LEAF_PORT}" \
+        --etcd_address= \
+        >"${LOG_FILE}" 2>&1 &
+
+    local leaf_pid=$!
+    printf '%s\n' "${leaf_pid}" >"${PID_FILE}"
+
+    echo "[3/3] Waiting for index loading and gRPC startup"
+    local elapsed
+    for ((elapsed = 0; elapsed < START_TIMEOUT; ++elapsed)); do
+        if ! kill -0 "${leaf_pid}" 2>/dev/null; then
+            echo "ERROR: leaf exited during startup. Last log lines:" >&2
+            tail -n 80 "${LOG_FILE}" >&2
+            rm -f "${PID_FILE}"
+            exit 1
+        fi
+
+        if grep -q "add new shard:test_corpus/" "${LOG_FILE}" &&
+            grep -q "grpc server begin loop" "${LOG_FILE}"; then
+            echo "ARM64 leaf started successfully."
+            echo "  pid:    ${leaf_pid}"
+            echo "  listen: ${LEAF_SERVER_IP}:${LEAF_PORT}"
+            echo "  corpus: test_corpus"
+            echo "  index:  ${INDEX_PATH}"
+            echo "  log:    ${LOG_FILE}"
+            return 0
+        fi
+        sleep 1
+    done
+
+    echo "ERROR: leaf did not confirm index loading within ${START_TIMEOUT}s." >&2
+    tail -n 80 "${LOG_FILE}" >&2
+    kill "${leaf_pid}" 2>/dev/null || true
+    rm -f "${PID_FILE}"
+    exit 1
+}
+
+show_status()
+{
+    local running_pid
+    if running_pid="$(read_running_pid)"; then
+        echo "leaf is running: pid=${running_pid}, listen=${LEAF_SERVER_IP}:${LEAF_PORT}"
+        echo "log: ${LOG_FILE}"
+        return 0
+    fi
+    echo "leaf is not running for port ${LEAF_PORT}"
+    return 1
+}
+
+stop_leaf()
+{
+    local running_pid
+    if ! running_pid="$(read_running_pid)"; then
+        echo "leaf is not running for port ${LEAF_PORT}"
+        rm -f "${PID_FILE}"
+        return 0
+    fi
+
+    kill "${running_pid}"
+    local elapsed
+    for ((elapsed = 0; elapsed < 30; ++elapsed)); do
+        if ! kill -0 "${running_pid}" 2>/dev/null; then
+            rm -f "${PID_FILE}"
+            echo "leaf stopped: pid=${running_pid}"
+            return 0
+        fi
+        sleep 1
+    done
+
+    echo "ERROR: leaf did not stop within 30s; pid=${running_pid}" >&2
+    return 1
+}
+
+show_logs()
+{
+    if [[ ! -f "${LOG_FILE}" ]]; then
+        echo "ERROR: log file does not exist: ${LOG_FILE}" >&2
+        exit 1
+    fi
+    tail -n 100 -f "${LOG_FILE}"
+}
+
+validate_arguments
+case "${ACTION}" in
+    start)
+        start_leaf
+        ;;
+    status)
+        show_status
+        ;;
+    stop)
+        stop_leaf
+        ;;
+    logs)
+        show_logs
+        ;;
+    help | -h | --help)
+        print_usage
+        ;;
+    *)
+        echo "ERROR: unsupported action: ${ACTION}" >&2
+        print_usage >&2
+        exit 2
+        ;;
+esac
