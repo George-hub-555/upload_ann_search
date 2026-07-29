@@ -96,14 +96,15 @@ cd /home/tysearch/g500_test/falcon
 ./devel/builder/bazel-6.5.0-linux-arm64 build \
   //tools/index_factory:build_local_v1
 
-ERROR: An error occurred during the fetch of repository 'com_github_grpc_grpc':
-   Traceback (most recent call last):
-        File "/home/tysearch/.cache/bazel/_bazel_tysearch/6cdafd9e16bd74f6c7fcdc01069328f2/external/bazel_tools/tools/build_defs/repo/http.bzl", line 132, column 45, in _http_archive_impl
-                download_info = ctx.download_and_extract(
-Error in download_and_extract: java.io.IOException: Error downloading [https://cmc.cloudartifact.szv.dragon.tools.huawei.com/artifactory/opensource_general/gRPC/v1.65.4/package/grpc-1.65.4.zip] to /home/tysearch/.cache/bazel/_bazel_tysearch/6cdafd9e16bd74f6c7fcdc01069328f2/external/com_github_grpc_grpc/temp12695917307867514377/grpc-1.65.4.zip: Unknown host: cmc.cloudartifact.szv.dragon.tools.huawei.com
-ERROR: /home/tysearch/g500_test/falcon/WORKSPACE:7:10: fetching http_archive rule //external:com_github_grpc_grpc: Traceback (most recent call last):
-        File "/home/tysearch/.cache/bazel/_bazel_tysearch/6cdafd9e16bd74f6c7fcdc01069328f2/external/bazel_tools/tools/build_defs/repo/http.bzl", line 132, column 45, in _http_archive_impl
-                download_info = ctx.download_and_extract(
-Error in download_and_extract: java.io.IOException: Error downloading [https://cmc.cloudartifact.szv.dragon.tools.huawei.com/artifactory/opensource_general/gRPC/v1.65.4/package/grpc-1.65.4.zip] to /home/tysearch/.cache/bazel/_bazel_tysearch/6cdafd9e16bd74f6c7fcdc01069328f2/external/com_github_grpc_grpc/temp12695917307867514377/grpc-1.65.4.zip: Unknown host: cmc.cloudartifact.szv.dragon.tools.huawei.com
-ERROR: Error computing the main repository mapping: no such package '@com_github_grpc_grpc//bazel': java.io.IOException: Error downloading [https://cmc.cloudartifact.szv.dragon.tools.huawei.com/artifactory/opensource_general/gRPC/v1.65.4/package/grpc-1.65.4.zip] to /home/tysearch/.cache/bazel/_bazel_tysearch/6cdafd9e16bd74f6c7fcdc01069328f2/external/com_github_grpc_grpc/temp12695917307867514377/grpc-1.65.4.zip: Unknown host: cmc.cloudartifact.szv.dragon.tools.huawei.com
-Loading: 
+./devel/builder/bazel-6.5.0-linux-arm64 build \
+>   --copt=-march=armv8.2-a+crypto+crc+dotprod \
+>   --cxxopt=-march=armv8.2-a+crypto+crc+dotprod \
+>   //tools/index_factory:build_local_v1
+$TEST_TMPDIR defined: output root default is '/opt/huawei/data1/bazel-cache' and max_idle_secs default is '15'.
+Starting local Bazel server and connecting to it...
+ERROR: Skipping '//tools/index_factory:build_local_v1': no such target '//tools/index_factory:build_local_v1': target 'build_local_v1' not declared in package 'tools/index_factory' defined by /root/g50064150/falcon/tools/index_factory/BUILD (Tip: use `query "//tools/index_factory:*"` to see all the targets in that package)
+WARNING: Target pattern parsing failed.
+ERROR: no such target '//tools/index_factory:build_local_v1': target 'build_local_v1' not declared in package 'tools/index_factory' defined by /root/g50064150/falcon/tools/index_factory/BUILD (Tip: use `query "//tools/index_factory:*"` to see all the targets in that package)
+INFO: Elapsed time: 8.840s
+INFO: 0 processes.
+FAILED: Build did NOT complete successfully (1 packages loaded)
