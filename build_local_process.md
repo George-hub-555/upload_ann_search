@@ -95,3 +95,15 @@ cd /home/tysearch/g500_test/falcon
 **#如果不需要指定 ARM 指令集，也可以直接：**
 ./devel/builder/bazel-6.5.0-linux-arm64 build \
   //tools/index_factory:build_local_v1
+
+ERROR: An error occurred during the fetch of repository 'com_github_grpc_grpc':
+   Traceback (most recent call last):
+        File "/home/tysearch/.cache/bazel/_bazel_tysearch/6cdafd9e16bd74f6c7fcdc01069328f2/external/bazel_tools/tools/build_defs/repo/http.bzl", line 132, column 45, in _http_archive_impl
+                download_info = ctx.download_and_extract(
+Error in download_and_extract: java.io.IOException: Error downloading [https://cmc.cloudartifact.szv.dragon.tools.huawei.com/artifactory/opensource_general/gRPC/v1.65.4/package/grpc-1.65.4.zip] to /home/tysearch/.cache/bazel/_bazel_tysearch/6cdafd9e16bd74f6c7fcdc01069328f2/external/com_github_grpc_grpc/temp12695917307867514377/grpc-1.65.4.zip: Unknown host: cmc.cloudartifact.szv.dragon.tools.huawei.com
+ERROR: /home/tysearch/g500_test/falcon/WORKSPACE:7:10: fetching http_archive rule //external:com_github_grpc_grpc: Traceback (most recent call last):
+        File "/home/tysearch/.cache/bazel/_bazel_tysearch/6cdafd9e16bd74f6c7fcdc01069328f2/external/bazel_tools/tools/build_defs/repo/http.bzl", line 132, column 45, in _http_archive_impl
+                download_info = ctx.download_and_extract(
+Error in download_and_extract: java.io.IOException: Error downloading [https://cmc.cloudartifact.szv.dragon.tools.huawei.com/artifactory/opensource_general/gRPC/v1.65.4/package/grpc-1.65.4.zip] to /home/tysearch/.cache/bazel/_bazel_tysearch/6cdafd9e16bd74f6c7fcdc01069328f2/external/com_github_grpc_grpc/temp12695917307867514377/grpc-1.65.4.zip: Unknown host: cmc.cloudartifact.szv.dragon.tools.huawei.com
+ERROR: Error computing the main repository mapping: no such package '@com_github_grpc_grpc//bazel': java.io.IOException: Error downloading [https://cmc.cloudartifact.szv.dragon.tools.huawei.com/artifactory/opensource_general/gRPC/v1.65.4/package/grpc-1.65.4.zip] to /home/tysearch/.cache/bazel/_bazel_tysearch/6cdafd9e16bd74f6c7fcdc01069328f2/external/com_github_grpc_grpc/temp12695917307867514377/grpc-1.65.4.zip: Unknown host: cmc.cloudartifact.szv.dragon.tools.huawei.com
+Loading: 
