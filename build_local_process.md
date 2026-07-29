@@ -84,3 +84,14 @@ bazel build \
 ./devel/builder/bazel-6.5.0-linux-arm64 build \
   --config=linux_arm64 \
   //tools/index_factory:build_local_v1
+
+**#报错仅表示远程仓库没有定义 linux_arm64 配置。**
+cd /home/tysearch/g500_test/falcon
+
+./devel/builder/bazel-6.5.0-linux-arm64 build \
+  --copt=-march=armv8.2-a+crypto+crc+dotprod \
+  --cxxopt=-march=armv8.2-a+crypto+crc+dotprod \
+  //tools/index_factory:build_local_v1
+**#如果不需要指定 ARM 指令集，也可以直接：**
+./devel/builder/bazel-6.5.0-linux-arm64 build \
+  //tools/index_factory:build_local_v1
