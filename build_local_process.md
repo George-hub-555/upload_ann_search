@@ -47,6 +47,18 @@ mkdir -p index_output
 ```
 
 回到 Falcon 仓库编译：
+cd /opt/huawei/data3/g50064150/falcon
+
+mkdir -p \
+  /opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_ouput
+
+chmod +x tools/index_factory/build_local_v1
+
+./tools/index_factory/build_local_v1 \
+  --schema_path=/opt/huawei/data3/g50064150/falcon/tools/index_factory/schema.json \
+  --data_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/falcon_data/0 \
+  --output_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_ouput \
+  --shard_id=0
 
 ```bash
 cd /实际路径/falcon
@@ -57,7 +69,7 @@ bazel build \
 ```
 
 运行：
-
+chmod +x /home/tysearch/g500_test/falcon/tools/index_factory/build_local_v1
 ```bash
 ./bazel-bin/tools/index_factory/build_local_v1 \
   --schema_path=/实际路径/falcon/tools/index_factory/schema.json \
