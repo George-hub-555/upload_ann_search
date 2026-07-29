@@ -59,6 +59,19 @@ chmod +x tools/index_factory/build_local_v1
   --data_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/falcon_data/0 \
   --output_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_ouput \
   --shard_id=0
+**#Error**
+./tools/index_factory/build_local_v1 \
+>   --schema_path=/opt/huawei/data3/g50064150/falcon/tools/index_factory/schema.json \
+>   --data_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/falcon_data/0 \
+>   --output_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_ouput \
+>   --shard_id=0
+2026-07-29 15:20:13,550|INFO|{"address": "127.0.0.1", "details": "[index_factory/index_builder/index_builder_impl.cpp:27] Build"}
+2026-07-29 15:20:13,551|ERROR|{"address": "127.0.0.1", "details": "[index_factory/public/builder/builder_schema.cpp:161] cluster_ivf_section_type is illegal"}
+2026-07-29 15:20:13,551|ERROR|{"address": "127.0.0.1", "details": "[index_factory/public/builder/builder_schema.cpp:38] check section info failed."}
+2026-07-29 15:20:13,551|ERROR|{"address": "127.0.0.1", "details": "[index_factory/index_builder/index_builder_impl.cpp:29] schema is invalid"}
+2026-07-29 15:20:13,551|ERROR|{"address": "127.0.0.1", "details": "[tools/index_factory/build_local_v1.cpp:86] local index build failed"}
+
+
 
 ```bash
 cd /实际路径/falcon
