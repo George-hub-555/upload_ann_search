@@ -59,8 +59,9 @@ chmod +x tools/index_factory/build_local_v1
   --data_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/falcon_data/0 \
   --output_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_ouput \
   --shard_id=0
+  
 **#Error**
-./tools/index_factory/build_local_v1 \
+ ./tools/index_factory/build_local_v1 \
 >   --schema_path=/opt/huawei/data3/g50064150/falcon/tools/index_factory/schema.json \
 >   --data_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/falcon_data/0 \
 >   --output_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_ouput \
@@ -70,6 +71,23 @@ chmod +x tools/index_factory/build_local_v1
 2026-07-29 15:20:13,551|ERROR|{"address": "127.0.0.1", "details": "[index_factory/public/builder/builder_schema.cpp:38] check section info failed."}
 2026-07-29 15:20:13,551|ERROR|{"address": "127.0.0.1", "details": "[index_factory/index_builder/index_builder_impl.cpp:29] schema is invalid"}
 2026-07-29 15:20:13,551|ERROR|{"address": "127.0.0.1", "details": "[tools/index_factory/build_local_v1.cpp:86] local index build failed"}
+[tysearch@default-keplerengine-37-1-10 falcon]$ ./tools/index_factory/build_local_v1   --schema_path=/opt/huawei/data3/g50064150/falcon/tools/index_factory/schema.json   --data_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/falcon_data/0   --output_path=/opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_ouput   --shard_id=0
+2026-07-29 15:46:01,331|INFO|{"address": "127.0.0.1", "details": "[index_factory/index_builder/index_builder_impl.cpp:27] Build"}
+2026-07-29 15:46:01,333|INFO|{"address": "127.0.0.1", "details": "[index_factory/index_builder/index_builder_impl.cpp:32] docId name: creative_id"}
+2026-07-29 15:46:01,333|INFO|{"address": "127.0.0.1", "details": "[index_factory/index_builder/index_builder_impl.cpp:42] docId dir: /opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/falcon_data/0/creative_id"}
+2026-07-29 15:46:01,333|INFO|{"address": "127.0.0.1", "details": "[index_factory/index_builder/index_builder_impl.cpp:50] sec dir: /opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/falcon_data/0/relevance_softLtrAfmConditionv1"}
+2026-07-29 15:46:01,333|INFO|{"address": "127.0.0.1", "details": "[common/utils/filesystem/base_directory.cpp:28] using disk file system"}
+2026-07-29 15:46:01,333|ERROR|{"address": "127.0.0.1", "details": "[common/utils/filesystem/disk_directory.cpp:69] Failed to open file /opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_ouput/shard00000.docids: No such file or directory"}
+2026-07-29 15:46:01,333|ERROR|{"address": "127.0.0.1", "details": "[./common/utils/filesystem/cache_file_writer.h:20] Get inner reader failed for /opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_ouput/shard00000.docids"}
+2026-07-29 15:46:01,333|ERROR|{"address": "127.0.0.1", "details": "[./common/shard_format/bundles/bundle_file_writer.h:54] Failed to open file for writer"}
+2026-07-29 15:46:39,588|INFO|{"address": "127.0.0.1", "details": "[index_factory/public/builder/doc_id_builder.cpp:57] merge document in memory:totalMem=161326763,maxMem=1073741824"}
+2026-07-29 15:46:44,560|ERROR|{"address": "127.0.0.1", "details": "[common/shard_format/bundles/codec/fixed_length_bundle_encoder.cpp:26] Empty data writer, bundle 200001 init failed"}
+2026-07-29 15:46:44,581|ERROR|{"address": "127.0.0.1", "details": "[index_factory/public/writer/doc_id_writer.cpp:84] Write doc id failed"}
+2026-07-29 15:46:44,581|ERROR|{"address": "127.0.0.1", "details": "[index_factory/public/builder/doc_id_builder.cpp:94] Failed to close doc id writer."}
+2026-07-29 15:46:44,582|ERROR|{"address": "127.0.0.1", "details": "[index_factory/index_builder/create_doc_id_index.cpp:39] doc id builder finalize failed."}
+2026-07-29 15:46:44,702|ERROR|{"address": "127.0.0.1", "details": "[common/shard_format/bundles/bundle_file_writer.cpp:127] Bundle has not been ended, bundle id 200001"}
+2026-07-29 15:46:44,800|ERROR|{"address": "127.0.0.1", "details": "[index_factory/index_builder/index_builder_impl.cpp:58] Failed to build doc ids"}
+2026-07-29 15:46:44,800|ERROR|{"address": "127.0.0.1", "details": "[tools/index_factory/build_local_v1.cpp:86] local index build failed"}
 
 
 
