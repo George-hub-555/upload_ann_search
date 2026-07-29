@@ -108,3 +108,187 @@ ERROR: no such target '//tools/index_factory:build_local_v1': target 'build_loca
 INFO: Elapsed time: 8.840s
 INFO: 0 processes.
 FAILED: Build did NOT complete successfully (1 packages loaded)
+
+**#Error**
+The Boost C++ Libraries were successfully built!
+
+The following directory should be added to compiler include paths:
+
+    /opt/huawei/data1/bazel-cache/_bazel_root/c309df92d697e21992c95b5ef7ff6b65/sandbox/linux-sandbox/199/execroot/falcon/external/com_github_boostorg_boost
+
+The following directory should be added to linker library paths:
+
+    /opt/huawei/data1/bazel-cache/_bazel_root/c309df92d697e21992c95b5ef7ff6b65/sandbox/linux-sandbox/199/execroot/falcon/external/com_github_boostorg_boost/stage/lib
+
+/opt/huawei/data1/bazel-cache/_bazel_root/c309df92d697e21992c95b5ef7ff6b65/sandbox/linux-sandbox/199/execroot/falcon
+INFO: From Executing genrule @log4cplus//:log4cplus-compile:
+/opt/huawei/data1/bazel-cache/_bazel_root/c309df92d697e21992c95b5ef7ff6b65/sandbox/linux-sandbox/5/execroot/falcon
+INFO: From Compiling src/google/protobuf/compiler/rust/relative_path.cc [for tool]:
+external/com_google_protobuf/src/google/protobuf/compiler/rust/relative_path.cc: In member function 'std::string google::protobuf::compiler::rust::RelativePath::Relative(const google::protobuf::compiler::rust::RelativePath&) const':
+external/com_google_protobuf/src/google/protobuf/compiler/rust/relative_path.cc:66:21: warning: comparison of integer expressions of different signedness: 'int' and 'std::vector<std::basic_string_view<char> >::size_type' {aka 'long unsigned int'} [-Wsign-compare]
+   66 |   for (int i = 0; i < current_segments.size(); ++i) {
+      |                   ~~^~~~~~~~~~~~~~~~~~~~~~~~~
+INFO: From Compiling src/google/protobuf/wire_format_lite.cc [for tool]:
+external/com_google_protobuf/src/google/protobuf/wire_format_lite.cc:669: warning: ignoring '#pragma clang loop' [-Wunknown-pragmas]
+  669 | #pragma clang loop vectorize(disable) unroll(disable) interleave(disable)
+      | 
+external/com_google_protobuf/src/google/protobuf/wire_format_lite.cc:711: warning: ignoring '#pragma clang loop' [-Wunknown-pragmas]
+  711 | #pragma clang loop vectorize(disable) unroll(disable) interleave(disable)
+      | 
+INFO: From Compiling src/google/protobuf/arena.cc [for tool]:
+external/com_google_protobuf/src/google/protobuf/arena.cc: In member function 'void* google::protobuf::internal::SerialArena::AllocateAlignedFallback(size_t)':
+external/com_google_protobuf/src/google/protobuf/arena.cc:194:10: warning: 'ret' may be used uninitialized in this function [-Wmaybe-uninitialized]
+  194 |   return ret;
+      |          ^~~
+INFO: From Compiling src/google/protobuf/generated_message_tctable_lite.cc [for tool]:
+In file included from bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/generated_message_tctable_decl.h:23,
+                 from external/com_google_protobuf/src/google/protobuf/generated_message_tctable_lite.cc:23:
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1077:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1077 | ParseContext::ParseLengthDelimitedInlined(const char* ptr, const Func& func) {
+      | ^~~~~~~~~~~~
+bazel-out/aarch64-opt-exec-2B5CBBC6/bin/external/com_google_protobuf/src/google/protobuf/_virtual_includes/protobuf_lite/google/protobuf/parse_context.h:1091:1: warning: 'always_inline' function might not be inlinable [-Wattributes]
+ 1091 | ParseContext::ParseGroupInlined(const char* ptr, uint32_t start_tag,
+      | ^~~~~~~~~~~~
+external/com_google_protobuf/src/google/protobuf/generated_message_tctable_lite.cc:838:36: warning: 'always_inline' function might not be inlinable [-Wattributes]
+  838 | PROTOBUF_ALWAYS_INLINE const char* TcParser::FastVarintS1(
+      |                                    ^~~~~~~~
+external/com_google_protobuf/src/google/protobuf/generated_message_tctable_lite.cc:838:36: warning: 'always_inline' function might not be inlinable [-Wattributes]
+external/com_google_protobuf/src/google/protobuf/generated_message_tctable_lite.cc:761:29: warning: 'always_inline' function might not be inlinable [-Wattributes]
+  761 | PROTOBUF_ALWAYS_INLINE bool EnumIsValidAux(int32_t val, uint16_t xform_val,
+      |                             ^~~~~~~~~~~~~~
+external/com_google_protobuf/src/google/protobuf/generated_message_tctable_lite.cc:749:29: warning: 'always_inline' function might not be inlinable [-Wattributes]
+  749 | PROTOBUF_ALWAYS_INLINE void PrefetchEnumData(uint16_t xform_val,
+      |                             ^~~~~~~~~~~~~~~~
+Target //tools/index_factory:build_local_v1 up-to-date:
+  bazel-bin/tools/index_factory/build_local_v1
+INFO: Elapsed time: 383.703s, Critical Path: 226.38s
+INFO: 1173 processes: 376 internal, 797 linux-sandbox.
+INFO: Build completed successfully, 1173 total actions
