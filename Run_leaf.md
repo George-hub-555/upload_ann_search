@@ -5,7 +5,7 @@ cd /opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data
 find . -maxdepth 2 -type f -printf '%P\n' | sort
 
 **#Get Format**
-
+.  ..  conditionv1_3500_one_tier_log_form.txt  falcon_data  falcon_data.tar.gz  falcon_request_new.txt  falcon_request.txt  index_model_relevance_softLtrAfmConditionv1  index_output
 index_output/shard00000.section.relevance_softLtrAfmConditionv1
 
 ls -lh falcon_request.txt falcon_request_new.txt
