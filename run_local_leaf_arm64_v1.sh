@@ -20,7 +20,7 @@ set -euo pipefail
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 readonly REPO_ROOT="$(cd "${SCRIPT_DIR}/../.." && pwd -P)"
 readonly HOST_ARCH="$(uname -m)"
-readonly BUNDLED_BAZEL="${REPO_ROOT}/devel/builder/bazel-7.4.1-linux-arm64"
+readonly BUNDLED_BAZEL="${REPO_ROOT}/devel/builder/bazel-6.5.0-linux-arm64"
 
 if [[ "${HOST_ARCH}" != "aarch64" && "${HOST_ARCH}" != "arm64" ]]; then
     echo "ERROR: this script only supports aarch64/arm64; current architecture=${HOST_ARCH}" >&2
@@ -148,14 +148,13 @@ build_leaf()
     (
         cd "${REPO_ROOT}"
         "${BAZEL_CMD}" build \
-            --config=linux_arm64 \
             //falcon/serving/leaf/bootstrap:leaf
     )
 
     local bazel_bin
     bazel_bin="$(
         cd "${REPO_ROOT}"
-        "${BAZEL_CMD}" info --config=linux_arm64 bazel-bin
+        "${BAZEL_CMD}" info bazel-bin
     )"
     LEAF_BINARY="${bazel_bin}/falcon/serving/leaf/bootstrap/leaf"
     readonly LEAF_BINARY
