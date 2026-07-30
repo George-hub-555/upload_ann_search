@@ -114,3 +114,45 @@ bash "$RUN" all \
 ```
 
 这次识别到 `add new shard:test_corpus` 和 `Leaf service waiting` 后，就会立即进入 `[2/2] Running perf.cpp`。
+
+
+
+`perf.log` 没有最终结果，是因为没有任何请求成功解析：
+
+```text
+req num: 0 failed num: 10908
+```
+
+依据当前 `perf.cpp`：当请求列表为空时，`Run()` 会直接返回，所以不会输出 QPS、P99 等结果。
+
+先在 B 机器检查生成的请求文件是否是合法 JSON：
+
+```bash
+cd /opt/huawei/data3/g50064150/falcon
+
+F=leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6635/requests_relevance_softLtrAfmConditionv1.jsonl
+
+head -n 1 "$F" | python3 -m json.tool >/dev/null \
+  && echo JSON_OK \
+  || echo JSON_BAD
+```
+
+再检查文件和日志大小：
+
+```bash
+wc -lc "$F" leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6635/perf.log
+```
+
+判断：
+
+- `JSON_BAD`：生成后的请求文件本身不是合法JSON。
+- `JSON_OK`：JSON语法正常，但与 A 机器仓库中 `SearchRequest` 的 protobuf 字段定义不兼容。
+- `perf.log` 为0字节：远程版本的日志系统可能绕过了 `tee`，但当前没有性能结果的根因仍然是请求解析数为0。
+
+当前 Leaf 应该仍在运行，不需要再次加载索引。找到请求问题后，可以只运行：
+
+```bash
+bash "$RUN" perf dataset/1kw_64dim_test_data/falcon_request_new.txt
+```
+
+把 `JSON_OK/JSON_BAD` 和 `wc -lc` 输出发给我，再继续定位。
