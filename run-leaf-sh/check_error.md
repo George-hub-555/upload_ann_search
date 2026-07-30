@@ -93,3 +93,59 @@ tail -n 100
 - Leaf 日志出现 section、query、plugin、corpus 等错误：按对应服务端错误继续定位。
 
 这些命令中，A 只检查源码；请求文件、索引路径和6335端口全部只属于 B，不会混用两台机器的绝对路径。
+
+
+
+### 当前结论
+
+从现有证据看，问题发生在 **Leaf 拉起后的搜索评分阶段**，暂时不应归因于索引构建。
+
+依据：
+
+- 索引已经成功加载：
+
+```text
+add new shard:test_corpus
+Leaf service waiting
+```
+
+- 150935次搜索成功并返回结果，说明索引可以被读取和检索。
+- 报错位置是：
+
+```text
+search_processor.cpp
+cannot find scorer[vector_scorer_plugin]
+```
+
+这是请求进入 Leaf 后，在 `Score()` 评分阶段查找 scorer 失败，不是构建索引时产生的错误。
+
+### 仍不能完全排除的情况
+
+参考仓库中，`GetScorer()` 返回空有两种可能：
+
+1. Leaf 二进制根本没有注册 `vector_scorer_plugin`。
+2. scorer 已注册，但初始化时找不到索引中需要的 section/attachment。
+
+第一种属于 Leaf 编译或请求配置问题；第二种才可能与索引构建内容有关。
+
+### 最小定位命令
+
+在 A 的实际仓库根目录执行：
+
+```bash
+grep -R -n 'vector_scorer_plugin' falcon/serving/leaf | head -n 30
+```
+
+判断：
+
+- 完全没有输出：实际 Leaf 代码不包含这个插件。问题属于请求与 Leaf 能力不匹配，与索引构建无关。
+- 找到 `REGISTER_SCORER` 或插件实现：继续检查它是否被 Leaf 编译链接，以及初始化需要哪些索引字段。
+- 只在测试或请求样例中出现：同样说明生产 Leaf 没有注册它。
+
+再查看实际仓库的 `GetScorer`：
+
+```bash
+grep -n -A 30 'GetScorer' falcon/serving/leaf/indexing/shard.cpp
+```
+
+在确认 scorer 是否存在之前，不建议重新构建索引。当前最高概率是 Leaf 中缺少 `vector_scorer_plugin`，或者请求不应该指定这个插件。
