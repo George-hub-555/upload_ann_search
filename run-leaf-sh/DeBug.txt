@@ -140,3 +140,10 @@ PC: @     0xffffaa72f3e8  (unknown)  syscall
 2026-07-30 14:59:29,423|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_main.cpp:18]     @           0xf44e5c         96  absl::lts_20240116::AbslFailureSignalHandler()
 "}
 2026-07-30 14:59:29,423|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_main.cpp:18] "}
+
+
+
+
+10908 175125951 leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6635/requests_relevance_softLtrAfmConditionv1.jsonl
+        1       128 leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6635/perf.log
+    10909 175126079 total
