@@ -17,3 +17,8 @@ E0000 00:00:1785398524.476713 2382634 completion_queue_cc.cc:137] CompletionQueu
 ERROR: leaf startup failed
 [tysearch@default-keplerengine-37-1-10 falcon]$ bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh stop
 leaf is not running for port 6635
+
+
+PID=123456
+ps -p "$PID" -o pid,user,etime,args
+tr '\0' ' ' < "/proc/$PID/cmdline"; echo
