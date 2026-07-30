@@ -11,9 +11,9 @@ BAZEL=/实际路径/bazel-6.5.0 bash tools/test/perf/build_leaf_perf_package_arm
 
 
 **#Run**
-mkdir -p /opt/huawei/data3/g50064150/leaf_perf_runtime
+mkdir -p /opt/huawei/data3/g50064150/falcon/leaf_perf_runtime
 tar -xzf leaf_perf_arm64_bazel65_20260730_120000.tar.gz \
-  -C /opt/huawei/data3/g50064150/leaf_perf_runtime
+  -C /opt/huawei/data3/g50064150/falcon/leaf_perf_runtime
 
 cd /opt/huawei/data3/g50064150/leaf_perf_runtime/leaf_perf_arm64_bazel65_20260730_120000
 
