@@ -79,3 +79,38 @@ bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh st
 LOG=leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6635/leaf.log
 tail -n 50 "$LOG"
 ```
+
+
+###修正
+### 已确认
+
+`tail -n 50` 不会发送 `SIGTERM`，它只读取日志。
+
+这个 `SIGTERM` 是运行脚本主动发送的。证据是：
+
+- 14:49:31：Leaf 已加载索引并进入服务状态。
+- 14:59:29：刚好约600秒后收到 `SIGTERM`。
+- 当前脚本超时后会执行 `kill "${leaf_pid}"`。
+
+因此不是 Leaf 崩溃，而是脚本误判启动失败后关闭了 Leaf。
+
+无需重新编译。在 B 机器临时修正脚本：
+
+```bash
+cd /opt/huawei/data3/g50064150/falcon
+RUN=leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh
+
+sed -i 's#add new shard:test_corpus/#add new shard:test_corpus#' "$RUN"
+sed -i 's#grpc server begin loop#Leaf service waiting#' "$RUN"
+bash -n "$RUN"
+```
+
+然后重新执行：
+
+```bash
+bash "$RUN" all \
+  dataset/1kw_64dim_test_data/index_output \
+  dataset/1kw_64dim_test_data/falcon_request_new.txt
+```
+
+这次识别到 `add new shard:test_corpus` 和 `Leaf service waiting` 后，就会立即进入 `[2/2] Running perf.cpp`。
