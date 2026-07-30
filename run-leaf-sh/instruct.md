@@ -156,3 +156,11 @@ bash "$RUN" perf dataset/1kw_64dim_test_data/falcon_request_new.txt
 ```
 
 把 `JSON_OK/JSON_BAD` 和 `wc -lc` 输出发给我，再继续定位。
+
+
+
+###查看字段
+```
+sed -n '120,155p' tools/test/perf/perf.cpp
+python3 -c 'import json,sys;x=json.loads(sys.stdin.readline());print({k:type(v).__name__ for k,v in x.items()})' < "$F"
+```
