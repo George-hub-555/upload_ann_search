@@ -22,3 +22,10 @@ leaf is not running for port 6635
 PID=4101629
 ps -p "$PID" -o pid,user,etime,args
 tr '\0' ' ' < "/proc/$PID/cmdline"; echo
+
+
+RUN=leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh
+bash "$RUN" stop
+
+
+ss -H -lntp | grep ':6335' || echo "port 6335 is free"
