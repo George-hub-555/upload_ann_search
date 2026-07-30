@@ -84,3 +84,59 @@ Leaf did not finish loading within 600s. Last log lines:
 2026-07-30 14:49:31,100|INFO|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_node.cpp:198] Leaf service waiting"}
 2026-07-30 14:50:28,287|INFO|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_node.cpp:164] In [60009]ms, statisticInitCount[1]."}
 ERROR: leaf startup failed
+
+
+
+
+
+
+filter_section_names: "99078"
+  filter_section_names: "2003"
+  filter_section_names: "99003"
+  filter_section_names: "2001"
+  filter_section_names: "99063"
+  filter_section_names: "99092"
+  filter_section_names: "10015"
+  filter_section_names: "3003"
+  filter_section_names: "2000"
+  filter_section_names: "1008"
+  filter_section_names: "99091"
+  filter_section_names: "1007"
+  filter_section_names: "1006"
+  filter_section_names: "10008"
+  filter_section_names: "1004"
+  filter_section_names: "1003"
+  filter_section_names: "1002"
+  filter_section_names: "99061"
+  filter_section_names: "1001"
+  filter_section_names: "99055"
+  filter_section_names: "1000"
+  filter_section_names: "99042"
+  filter_section_names: "316"
+  filter_section_names: "not_target_country"
+  filter_section_names: "1009"
+  filter_section_names: "307"
+  filter_section_names: "2002"
+  filter_section_names: "305"
+  filter_section_names: "300"
+  filter_section_names: "8006"
+  filter_section_names: "1"
+  filter_section_names: "99037"
+  filter_section_names: "304"
+}
+"}
+2026-07-30 14:49:31,100|INFO|{"address": "127.0.0.1", "details": "[common/shard_format/fusion_index/cluster_index/section/bucket_cluster_sq_invert_index_section.cpp:99] Section name relevance_softLtrAfmConditionv1 Bucket size: not empty size 16384, minimum size 4, 50% size 556, 90% size 1018, maximum size 9020, term count 35672 thread pool size 32 query thread count 8"}
+2026-07-30 14:49:31,100|INFO|{"address": "127.0.0.1", "details": "[common/shard_format/section/section_manager.cpp:120] section num: 1"}
+2026-07-30 14:49:31,100|INFO|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/shard_container.cpp:51] add new shard:test_corpus               0       0"}
+2026-07-30 14:49:31,100|INFO|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_node.cpp:198] Leaf service waiting"}
+2026-07-30 14:50:28,287|INFO|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_node.cpp:164] In [60009]ms, statisticInitCount[1]."}
+*** SIGTERM received at time=1785394769 on cpu 128 ***
+PC: @     0xffffaa72f3e8  (unknown)  syscall
+    @           0xf44e34         96  absl::lts_20240116::AbslFailureSignalHandler()
+2026-07-30 14:59:29,422|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_main.cpp:18] *** SIGTERM received at time=1785394769 on cpu 128 ***
+"}
+2026-07-30 14:59:29,422|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_main.cpp:18] PC: @     0xffffaa72f3e8  (unknown)  syscall
+"}
+2026-07-30 14:59:29,423|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_main.cpp:18]     @           0xf44e5c         96  absl::lts_20240116::AbslFailureSignalHandler()
+"}
+2026-07-30 14:59:29,423|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_main.cpp:18] "}
