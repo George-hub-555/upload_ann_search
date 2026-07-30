@@ -1,31 +1,101 @@
-bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh all \
->   dataset/1kw_64dim_test_data/index_output \
->   dataset/1kw_64dim_test_data/falcon_request_new.txt
-[1/2] Starting local leaf and loading /opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_output
-Leaf exited while loading the index. Last log lines:
-2026-07-30 16:02:04,469|INFO|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/loader/loader_manager.cpp:31] pid for loader: 27fa17fad7719eb cur real time: 18c7027fa17fd6f3"}
-2026-07-30 16:02:04,469|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_node.cpp:118] Etcd endpoint not set"}
-2026-07-30 16:02:04,469|leaf_init_alarm|20000|0|1|4|0|Etcd endpoint not set
-2026-07-30 16:02:04,469|WARN|{"address": "127.0.0.1", "details": "leaf_init_alarm|20000|0|1|4|0|Etcd endpoint not set"}
-WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
-E0000 00:00:1785398524.476223 2382634 chttp2_server.cc:1143] UNKNOWN:No address added out of total 1 resolved for '127.0.0.1:6635' {created_time:"2026-07-30T16:02:04.476189072+08:00", file_line:1014, file:"external/com_github_grpc_grpc/src/core/ext/transport/chttp2/server/chttp2_server.cc", children:[FAILED_PRECONDITION:Error in bind for address '127.0.0.1:6635': Address already in use]}
-2026-07-30 16:02:04,476|ERROR|{"address": "127.0.0.1", "details": "[common/transport/grpc/grpc_server_base.cpp:41] failed to build rpc server.127.0.0.1:6635"}
-2026-07-30 16:02:04,476|INFO|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_node.cpp:198] Leaf service waiting"}
-2026-07-30 16:02:04,476|INFO|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_node.cpp:184] server stop"}
-E0000 00:00:1785398524.476713 2382634 completion_queue_cc.cc:137] CompletionQueue shutdown being shutdown before its server.
-2026-07-30 16:02:04,476|INFO|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/bootstrap/leaf_main.cpp:39] server stopped"}
-ERROR: leaf startup failed
-[tysearch@default-keplerengine-37-1-10 falcon]$ bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh stop
-leaf is not running for port 6635
-
-
-PID=4101629
-ps -p "$PID" -o pid,user,etime,args
-tr '\0' ' ' < "/proc/$PID/cmdline"; echo
-
-
-RUN=leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh
-bash "$RUN" stop
-
-
-ss -H -lntp | grep ':6335' || echo "port 6335 is free"
+2026-07-30 17:14:36,656|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,661|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,662|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,663|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,669|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,673|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,674|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,675|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,676|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,680|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,684|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,686|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,690|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,695|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,698|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,702|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,706|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,708|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,710|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,713|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,715|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,718|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,721|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,723|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,724|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,728|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,733|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,738|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,739|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,745|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,747|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,749|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,752|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,753|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,754|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,755|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,756|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,757|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,762|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,764|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,768|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,774|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,776|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,780|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,782|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,785|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,790|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,791|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,792|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,795|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,795|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,800|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,804|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,806|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,810|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,812|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,813|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,817|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,822|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,824|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,825|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,828|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,833|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,835|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,839|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,844|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,849|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,851|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,855|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,860|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,864|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,869|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,871|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,873|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,876|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,881|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,885|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,890|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,894|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,897|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,901|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,906|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,911|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,916|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,921|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,923|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,927|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,928|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,929|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,930|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,933|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,934|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,935|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,939|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,940|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,944|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,947|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,950|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,951|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+2026-07-30 17:14:36,957|ERROR|{"address": "127.0.0.1", "details": "[falcon/serving/leaf/indexing/retrieval/search_processor.cpp:291] cannot find scorer[vector_scorer_plugin] using default simple_scorer"}
+[tysearch@default-keplerengine-37-1-10 falcon]$ 
