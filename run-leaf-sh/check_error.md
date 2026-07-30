@@ -35,6 +35,10 @@ if (FLAGS_failed_detail) {
 
 如果没有这些代码，把实际输出发给我，需要按照 A 的实际源码做最小修改，不能直接照搬当前仓库。
 
+```
+grep -n 'cluster_posting_type\|cluster_ivf_section_type' tools/index_factory/schema.json
+```
+
 ### 2. 在 B 机器运行小规模诊断
 
 先确认6335的 Leaf 仍在运行：
