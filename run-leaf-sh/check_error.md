@@ -37,6 +37,7 @@ if (FLAGS_failed_detail) {
 
 ```
 grep -n 'cluster_posting_type\|cluster_ivf_section_type' tools/index_factory/schema.json
+grep -n -A 30 'GetScorer' falcon/serving/leaf/indexing/shard.cpp
 ```
 
 ### 2. 在 B 机器运行小规模诊断
