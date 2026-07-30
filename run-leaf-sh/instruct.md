@@ -199,3 +199,57 @@ auto st = ::google::protobuf::json::JsonStringToMessage(line, &req, parseOptions
 - 之后仅重新编译 `//tools/test/perf:perf`
 
 这是对两个略有差异仓库风险最小的处理。
+
+
+
+### 已确认
+
+真正错误是：
+
+```text
+Address already in use
+Error in bind for address '127.0.0.1:6635'
+```
+
+上一次启动成功的旧 Leaf 仍然占用6635端口。删除运行目录只会删除文件，不会停止已经运行的 Linux 进程。
+
+`stop` 显示未运行，是因为它依赖：
+
+```text
+runtime_6635/leaf.pid
+```
+
+这个 PID 文件已经随目录一起被删除，所以脚本找不到旧进程。
+
+`Etcd endpoint not set` 是本地模式下的预期日志，不是这次失败原因。
+
+### 处理方法
+
+上一次输出显示旧 Leaf 的 PID 是 `2323466`。先确认它：
+
+```bash
+ps -p 2323466 -o pid,user,etime,cmd
+readlink -f /proc/2323466/exe
+```
+
+确认是旧的 Leaf 后，正常停止：
+
+```bash
+kill 2323466
+```
+
+确认6635端口已经释放：
+
+```bash
+ss -lntp | grep ':6635' || echo "port 6635 is free"
+```
+
+如果没有任何监听，重新运行：
+
+```bash
+bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh all \
+  dataset/1kw_64dim_test_data/index_output \
+  dataset/1kw_64dim_test_data/falcon_request_new.txt
+```
+
+不要终止日志中的 `2382634`；这是本次绑定端口失败后已经退出的新 Leaf。
