@@ -53,7 +53,7 @@ tar -xzf dist/leaf_perf_arm64_bazel65.tar.gz -C leaf_perf_runtime
 ```bash
 cd /opt/huawei/data3/g50064150/falcon
 
-bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh all \
+LEAF_PORT=6335 bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh all \
   dataset/1kw_64dim_test_data/index_output \
   dataset/1kw_64dim_test_data/falcon_request_new.txt
 ```
