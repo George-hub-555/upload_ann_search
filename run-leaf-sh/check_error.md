@@ -149,3 +149,7 @@ grep -n -A 30 'GetScorer' falcon/serving/leaf/indexing/shard.cpp
 ```
 
 在确认 scorer 是否存在之前，不建议重新构建索引。当前最高概率是 Leaf 中缺少 `vector_scorer_plugin`，或者请求不应该指定这个插件。
+```
+strings leaf_perf_runtime/leaf_perf_arm64_bazel65/bin/leaf |
+grep -F 'vector_scorer_plugin'
+```
