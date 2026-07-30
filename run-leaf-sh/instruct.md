@@ -75,7 +75,7 @@ bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh st
 
 
 ###找日志格式
-···
+```
 LOG=leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6635/leaf.log
 tail -n 50 "$LOG"
-···
+```
