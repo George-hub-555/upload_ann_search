@@ -147,3 +147,91 @@ PC: @     0xffffaa72f3e8  (unknown)  syscall
 10908 175125951 leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6635/requests_relevance_softLtrAfmConditionv1.jsonl
         1       128 leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6635/perf.log
     10909 175126079 total
+
+
+
+
+[root@szvphis13378587 falcon]# sed -n '120,155p' tools/test/perf/perf.cpp
+            REQ req;
+            auto st = ::google::protobuf::json::JsonStringToMessage(line, &req);
+            if (st.ok()) {
+                if (!FLAGS_corpus.empty()) {
+                    req.set_corpus(FLAGS_corpus);
+                }
+                if constexpr (HasShardId<REQ>()) {
+                    if (FLAGS_shard != -1) {
+                        req.set_shard_id(FLAGS_shard);
+                    }
+                }
+                if constexpr (HasCycle<REQ>()) {
+                    if (FLAGS_cycle != "noc") {
+                        req.set_cycle(FLAGS_cycle);
+                    }
+                }
+                if constexpr (HasReplicaId<REQ>()) {
+                    req.set_replica_id(FLAGS_replica);
+                }
+                if (FLAGS_set_parallel_retrieve != -1) {
+                    req.set_parallel_retrieve(bool(FLAGS_set_parallel_retrieve));
+                }
+                input_.emplace_back(std::move(req));
+            } else {
+                failedNum++;
+            }
+        }
+        LOG(INFO) << "req num: " << input_.size() << " failed num: " << failedNum;
+    }
+
+    bool DoSearch(const REQ& req, RSP& rsp)
+    {
+        auto stub = stubGetter_(channel_[rand() % channel_.size()]);
+        grpc::ClientContext ctx;
+        auto st = Falcon::Common::Utils::Time::NowMillisecond();
+        auto status = stub->Search(&ctx, req, &rsp);
+[root@szvphis13378587 falcon]# python3 -c 'import json,sys;x=json.loads(sys.stdin.readline());print({k:type(v).__name__ for k,v in x.items()})' < "$F"
+bash: : No such file or directory
+
+
+ wc -lc "$F" leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6635/perf.log
+    10908 175125951 leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6635/requests_relevance_softLtrAfmConditionv1.jsonl
+        1       128 leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6635/perf.log
+    10909 175126079 total
+[tysearch@default-keplerengine-37-1-10 falcon]$ sed -n '120,155p' tools/test/perf/perf.cpp
+            REQ req;
+            auto st = ::google::protobuf::json::JsonStringToMessage(line, &req);
+            if (st.ok()) {
+                if (!FLAGS_corpus.empty()) {
+                    req.set_corpus(FLAGS_corpus);
+                }
+                if constexpr (HasShardId<REQ>()) {
+                    if (FLAGS_shard != -1) {
+                        req.set_shard_id(FLAGS_shard);
+                    }
+                }
+                if constexpr (HasCycle<REQ>()) {
+                    if (FLAGS_cycle != "noc") {
+                        req.set_cycle(FLAGS_cycle);
+                    }
+                }
+                if constexpr (HasReplicaId<REQ>()) {
+                    req.set_replica_id(FLAGS_replica);
+                }
+                if (FLAGS_set_parallel_retrieve != -1) {
+                    req.set_parallel_retrieve(bool(FLAGS_set_parallel_retrieve));
+                }
+                input_.emplace_back(std::move(req));
+            } else {
+                failedNum++;
+            }
+        }
+        LOG(INFO) << "req num: " << input_.size() << " failed num: " << failedNum;
+    }
+
+    bool DoSearch(const REQ& req, RSP& rsp)
+    {
+        auto stub = stubGetter_(channel_[rand() % channel_.size()]);
+        grpc::ClientContext ctx;
+        auto st = Falcon::Common::Utils::Time::NowMillisecond();
+        auto status = stub->Search(&ctx, req, &rsp);
+[tysearch@default-keplerengine-37-1-10 falcon]$ python3 -c 'import json,sys;x=json.loads(sys.stdin.readline());print({k:type(v).__name__ for k,v in x.items()})' < "$F"
+{'corpus': 'str', 'result_num': 'int', 'main_tier': 'dict', 'score_plugin': 'str', 'score_query': 'str', 'parallel_retrieve': 'bool', 'aggregate_plugin': 'str', 'aggregate_query': 'str', 'timeout': 'int', 'request_id': 'str'}
