@@ -52,7 +52,13 @@ tar -xzf dist/leaf_perf_arm64_bazel65.tar.gz -C leaf_perf_runtime
 
 ```bash
 cd /opt/huawei/data3/g50064150/falcon
-
+```
+查看端口是否空闲
+```
+ss -H -lntp | grep ':6335' || echo "port 6335 is free"
+```
+更改端口为目标要使用的端口
+```
 LEAF_PORT=6335 bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh all \
   dataset/1kw_64dim_test_data/index_output \
   dataset/1kw_64dim_test_data/falcon_request_new.txt
