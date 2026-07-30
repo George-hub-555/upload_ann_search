@@ -164,3 +164,38 @@ bash "$RUN" perf dataset/1kw_64dim_test_data/falcon_request_new.txt
 sed -n '120,155p' tools/test/perf/perf.cpp
 python3 -c 'import json,sys;x=json.loads(sys.stdin.readline());print({k:type(v).__name__ for k,v in x.items()})' < "$F"
 ```
+
+
+
+不建议直接覆盖整个 `perf.cpp`。
+
+已经确认两个版本不完全相同，例如：
+
+- A 机器版本使用 `NowMillisecond()`
+- 当前本地版本使用 `NowMicrosecond()`
+- 当前本地版本还增加了其他统计逻辑
+
+整体复制可能与 A 仓库的 proto、依赖或其他源码不兼容。
+
+最安全的是只修改 A 原有 `perf.cpp` 的这一行：
+
+```cpp
+auto st = ::google::protobuf::json::JsonStringToMessage(line, &req);
+```
+
+替换为：
+
+```cpp
+google::protobuf::json::ParseOptions parseOptions;
+parseOptions.ignore_unknown_fields = true;
+auto st = ::google::protobuf::json::JsonStringToMessage(line, &req, parseOptions);
+```
+
+即：
+
+- 不复制整个本地 `perf.cpp`
+- 不修改 Leaf
+- 只在 A 原有文件中增加这两行并修改调用
+- 之后仅重新编译 `//tools/test/perf:perf`
+
+这是对两个略有差异仓库风险最小的处理。
