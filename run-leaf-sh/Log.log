@@ -1,0 +1,749 @@
+LEAF_PORT=6335 bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh all   dataset/1kw_64dim_test_data/index_output   dataset/1kw_64dim_test_data/falcon_request_new.txt
+[1/2] Starting local leaf and loading /opt/huawei/data3/g50064150/falcon/dataset/1kw_64dim_test_data/index_output
+Leaf is ready: pid=2433554, address=127.0.0.1:6335
+Local shard key: corpus=test_corpus, cycle=<empty>, shard=0, replica=0
+Leaf log: /opt/huawei/data3/g50064150/falcon/leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6335/leaf.log
+Preparing a local request copy:
+  relevance_learning2rank -> relevance_softLtrAfmConditionv1
+WARNING: this changes only the section identifier; it does not prove that both names use the same embedding model.
+[2/2] Running perf.cpp: threads=20, seconds=60
+Perf input: /opt/huawei/data3/g50064150/falcon/leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6335/requests_relevance_softLtrAfmConditionv1.jsonl
+Perf log: /opt/huawei/data3/g50064150/falcon/leaf_perf_runtime/leaf_perf_arm64_bazel65/runtime_6335/perf.log
+2026-07-30 16:41:22,514|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:149] req num: 10908 failed num: 0"}
+2026-07-30 16:41:22,520|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 1 cost 0"}
+2026-07-30 16:41:22,613|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 1001 cost 93"}
+2026-07-30 16:41:22,705|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 2001 cost 185"}
+2026-07-30 16:41:22,799|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 3001 cost 279"}
+2026-07-30 16:41:22,895|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 4001 cost 375"}
+2026-07-30 16:41:22,995|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 5001 cost 475"}
+2026-07-30 16:41:23,090|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 6001 cost 570"}
+2026-07-30 16:41:23,187|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 7001 cost 667"}
+2026-07-30 16:41:23,281|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 8001 cost 760"}
+2026-07-30 16:41:23,368|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 9001 cost 848"}
+2026-07-30 16:41:23,460|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 10001 cost 940"}
+2026-07-30 16:41:23,552|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 11001 cost 1032"}
+2026-07-30 16:41:23,643|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 12001 cost 1123"}
+2026-07-30 16:41:23,732|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 13001 cost 1212"}
+2026-07-30 16:41:23,821|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 14001 cost 1301"}
+2026-07-30 16:41:23,916|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 15001 cost 1396"}
+2026-07-30 16:41:24,007|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 16001 cost 1487"}
+2026-07-30 16:41:24,101|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 17001 cost 1581"}
+2026-07-30 16:41:24,192|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 18001 cost 1672"}
+2026-07-30 16:41:24,283|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 19001 cost 1763"}
+2026-07-30 16:41:24,375|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 20001 cost 1855"}
+2026-07-30 16:41:24,467|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 21001 cost 1947"}
+2026-07-30 16:41:24,560|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 22001 cost 2040"}
+2026-07-30 16:41:24,653|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 23001 cost 2132"}
+2026-07-30 16:41:24,744|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 24001 cost 2224"}
+2026-07-30 16:41:24,833|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 25001 cost 2313"}
+2026-07-30 16:41:24,923|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 26001 cost 2403"}
+2026-07-30 16:41:25,014|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 27001 cost 2494"}
+2026-07-30 16:41:25,103|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 28001 cost 2583"}
+2026-07-30 16:41:25,192|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 29001 cost 2672"}
+2026-07-30 16:41:25,281|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 30001 cost 2761"}
+2026-07-30 16:41:25,368|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 31001 cost 2848"}
+2026-07-30 16:41:25,455|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 32001 cost 2935"}
+2026-07-30 16:41:25,543|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 33001 cost 3023"}
+2026-07-30 16:41:25,631|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 34001 cost 3111"}
+2026-07-30 16:41:25,718|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 35001 cost 3198"}
+2026-07-30 16:41:25,806|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 36001 cost 3286"}
+2026-07-30 16:41:25,896|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 37001 cost 3376"}
+2026-07-30 16:41:25,989|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 38001 cost 3469"}
+2026-07-30 16:41:26,083|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 39001 cost 3563"}
+2026-07-30 16:41:26,177|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 40002 cost 3657"}
+2026-07-30 16:41:26,270|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 41001 cost 3750"}
+2026-07-30 16:41:26,364|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 42001 cost 3844"}
+2026-07-30 16:41:26,456|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 43001 cost 3936"}
+2026-07-30 16:41:26,549|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 44001 cost 4029"}
+2026-07-30 16:41:26,641|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 45001 cost 4121"}
+2026-07-30 16:41:26,733|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 46001 cost 4213"}
+2026-07-30 16:41:26,826|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 47001 cost 4305"}
+2026-07-30 16:41:26,918|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 48001 cost 4398"}
+2026-07-30 16:41:27,010|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 49001 cost 4490"}
+2026-07-30 16:41:27,107|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 50001 cost 4587"}
+2026-07-30 16:41:27,205|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 51001 cost 4685"}
+2026-07-30 16:41:27,303|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 52001 cost 4783"}
+2026-07-30 16:41:27,404|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 53001 cost 4884"}
+2026-07-30 16:41:27,504|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 54001 cost 4984"}
+2026-07-30 16:41:27,602|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 55001 cost 5082"}
+2026-07-30 16:41:27,699|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 56001 cost 5179"}
+2026-07-30 16:41:27,799|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 57001 cost 5279"}
+2026-07-30 16:41:27,899|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 58001 cost 5379"}
+2026-07-30 16:41:27,999|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 59001 cost 5479"}
+2026-07-30 16:41:28,099|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 60001 cost 5578"}
+2026-07-30 16:41:28,199|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 61001 cost 5678"}
+2026-07-30 16:41:28,301|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 62001 cost 5781"}
+2026-07-30 16:41:28,396|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 63001 cost 5876"}
+2026-07-30 16:41:28,496|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 64001 cost 5976"}
+2026-07-30 16:41:28,598|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 65001 cost 6077"}
+2026-07-30 16:41:28,700|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 66001 cost 6180"}
+2026-07-30 16:41:28,805|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 67001 cost 6285"}
+2026-07-30 16:41:28,909|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 68001 cost 6389"}
+2026-07-30 16:41:29,013|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 69001 cost 6493"}
+2026-07-30 16:41:29,117|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 70001 cost 6597"}
+2026-07-30 16:41:29,221|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 71001 cost 6701"}
+2026-07-30 16:41:29,325|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 72001 cost 6805"}
+2026-07-30 16:41:29,428|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 73001 cost 6908"}
+2026-07-30 16:41:29,532|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 74001 cost 7012"}
+2026-07-30 16:41:29,635|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 75001 cost 7115"}
+2026-07-30 16:41:29,737|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 76001 cost 7217"}
+2026-07-30 16:41:29,841|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 77001 cost 7321"}
+2026-07-30 16:41:29,947|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 78001 cost 7427"}
+2026-07-30 16:41:30,053|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 79001 cost 7533"}
+2026-07-30 16:41:30,158|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 80001 cost 7638"}
+2026-07-30 16:41:30,264|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 81001 cost 7743"}
+2026-07-30 16:41:30,372|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 82001 cost 7852"}
+2026-07-30 16:41:30,479|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 83001 cost 7959"}
+2026-07-30 16:41:30,587|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 84001 cost 8067"}
+2026-07-30 16:41:30,693|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 85001 cost 8173"}
+2026-07-30 16:41:30,799|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 86001 cost 8279"}
+2026-07-30 16:41:30,907|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 87001 cost 8387"}
+2026-07-30 16:41:31,016|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 88001 cost 8495"}
+2026-07-30 16:41:31,123|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 89001 cost 8603"}
+2026-07-30 16:41:31,229|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 90001 cost 8708"}
+2026-07-30 16:41:31,337|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 91001 cost 8817"}
+2026-07-30 16:41:31,447|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 92001 cost 8927"}
+2026-07-30 16:41:31,557|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 93001 cost 9036"}
+2026-07-30 16:41:31,669|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 94001 cost 9149"}
+2026-07-30 16:41:31,779|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 95001 cost 9259"}
+2026-07-30 16:41:31,888|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 96001 cost 9368"}
+2026-07-30 16:41:31,994|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 97001 cost 9474"}
+2026-07-30 16:41:32,102|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 98001 cost 9582"}
+2026-07-30 16:41:32,212|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 99001 cost 9692"}
+2026-07-30 16:41:32,317|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 100001 cost 9797"}
+2026-07-30 16:41:32,428|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 101001 cost 9908"}
+2026-07-30 16:41:32,537|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 102001 cost 10017"}
+2026-07-30 16:41:32,646|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 103001 cost 10126"}
+2026-07-30 16:41:32,757|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 104001 cost 10237"}
+2026-07-30 16:41:32,866|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 105001 cost 10346"}
+2026-07-30 16:41:32,979|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 106001 cost 10459"}
+2026-07-30 16:41:33,091|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 107001 cost 10571"}
+2026-07-30 16:41:33,203|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 108001 cost 10682"}
+2026-07-30 16:41:33,313|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 109001 cost 10793"}
+2026-07-30 16:41:33,422|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 110001 cost 10902"}
+2026-07-30 16:41:33,531|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 111001 cost 11011"}
+2026-07-30 16:41:33,642|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 112001 cost 11122"}
+2026-07-30 16:41:33,753|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 113001 cost 11233"}
+2026-07-30 16:41:33,863|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 114001 cost 11343"}
+2026-07-30 16:41:33,974|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 115001 cost 11454"}
+2026-07-30 16:41:34,087|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 116001 cost 11567"}
+2026-07-30 16:41:34,200|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 117001 cost 11680"}
+2026-07-30 16:41:34,314|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 118001 cost 11794"}
+2026-07-30 16:41:34,424|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 119001 cost 11904"}
+2026-07-30 16:41:34,536|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 120001 cost 12016"}
+2026-07-30 16:41:34,644|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 121001 cost 12124"}
+2026-07-30 16:41:34,755|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 122001 cost 12235"}
+2026-07-30 16:41:34,865|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 123001 cost 12345"}
+2026-07-30 16:41:34,973|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 124001 cost 12453"}
+2026-07-30 16:41:35,082|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 125001 cost 12561"}
+2026-07-30 16:41:35,188|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 126001 cost 12668"}
+2026-07-30 16:41:35,297|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 127001 cost 12777"}
+2026-07-30 16:41:35,406|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 128001 cost 12886"}
+2026-07-30 16:41:35,518|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 129002 cost 12998"}
+2026-07-30 16:41:35,628|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 130001 cost 13108"}
+2026-07-30 16:41:35,736|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 131001 cost 13215"}
+2026-07-30 16:41:35,845|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 132001 cost 13325"}
+2026-07-30 16:41:35,955|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 133001 cost 13434"}
+2026-07-30 16:41:36,065|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 134001 cost 13545"}
+2026-07-30 16:41:36,176|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 135001 cost 13656"}
+2026-07-30 16:41:36,286|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 136001 cost 13766"}
+2026-07-30 16:41:36,396|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 137001 cost 13876"}
+2026-07-30 16:41:36,507|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 138001 cost 13987"}
+2026-07-30 16:41:36,615|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 139001 cost 14095"}
+2026-07-30 16:41:36,728|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 140001 cost 14207"}
+2026-07-30 16:41:36,839|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 141001 cost 14319"}
+2026-07-30 16:41:36,951|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 142001 cost 14431"}
+2026-07-30 16:41:37,062|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 143001 cost 14542"}
+2026-07-30 16:41:37,174|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 144001 cost 14654"}
+2026-07-30 16:41:37,285|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 145001 cost 14765"}
+2026-07-30 16:41:37,396|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 146001 cost 14876"}
+2026-07-30 16:41:37,508|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 147001 cost 14988"}
+2026-07-30 16:41:37,623|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 148001 cost 15102"}
+2026-07-30 16:41:37,736|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 149001 cost 15216"}
+2026-07-30 16:41:37,850|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 150001 cost 15329"}
+2026-07-30 16:41:37,964|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 151001 cost 15444"}
+2026-07-30 16:41:38,078|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 152003 cost 15558"}
+2026-07-30 16:41:38,191|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 153001 cost 15671"}
+2026-07-30 16:41:38,306|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 154001 cost 15786"}
+2026-07-30 16:41:38,420|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 155001 cost 15900"}
+2026-07-30 16:41:38,533|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 156001 cost 16013"}
+2026-07-30 16:41:38,646|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 157001 cost 16126"}
+2026-07-30 16:41:38,759|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 158001 cost 16239"}
+2026-07-30 16:41:38,876|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 159003 cost 16356"}
+2026-07-30 16:41:38,991|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 160001 cost 16471"}
+2026-07-30 16:41:39,088|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 161001 cost 16568"}
+2026-07-30 16:41:39,180|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 162001 cost 16660"}
+2026-07-30 16:41:39,271|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 163001 cost 16751"}
+2026-07-30 16:41:39,364|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 164001 cost 16844"}
+2026-07-30 16:41:39,457|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 165001 cost 16937"}
+2026-07-30 16:41:39,552|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 166001 cost 17032"}
+2026-07-30 16:41:39,646|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 167001 cost 17126"}
+2026-07-30 16:41:39,737|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 168001 cost 17216"}
+2026-07-30 16:41:39,826|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 169001 cost 17306"}
+2026-07-30 16:41:39,918|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 170001 cost 17397"}
+2026-07-30 16:41:40,007|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 171001 cost 17487"}
+2026-07-30 16:41:40,097|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 172001 cost 17576"}
+2026-07-30 16:41:40,188|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 173001 cost 17668"}
+2026-07-30 16:41:40,279|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 174001 cost 17759"}
+2026-07-30 16:41:40,372|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 175001 cost 17851"}
+2026-07-30 16:41:40,464|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 176001 cost 17944"}
+2026-07-30 16:41:40,555|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 177001 cost 18035"}
+2026-07-30 16:41:40,648|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 178001 cost 18128"}
+2026-07-30 16:41:40,739|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 179001 cost 18219"}
+2026-07-30 16:41:40,831|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 180001 cost 18311"}
+2026-07-30 16:41:40,925|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 181001 cost 18405"}
+2026-07-30 16:41:41,020|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 182001 cost 18500"}
+2026-07-30 16:41:41,115|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 183001 cost 18595"}
+2026-07-30 16:41:41,210|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 184001 cost 18689"}
+2026-07-30 16:41:41,302|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 185001 cost 18782"}
+2026-07-30 16:41:41,395|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 186002 cost 18875"}
+2026-07-30 16:41:41,489|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 187001 cost 18969"}
+2026-07-30 16:41:41,586|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 188001 cost 19066"}
+2026-07-30 16:41:41,683|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 189001 cost 19163"}
+2026-07-30 16:41:41,777|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 190001 cost 19257"}
+2026-07-30 16:41:41,873|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 191001 cost 19353"}
+2026-07-30 16:41:41,968|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 192001 cost 19447"}
+2026-07-30 16:41:42,063|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 193001 cost 19543"}
+2026-07-30 16:41:42,161|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 194001 cost 19640"}
+2026-07-30 16:41:42,260|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 195001 cost 19740"}
+2026-07-30 16:41:42,362|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 196001 cost 19842"}
+2026-07-30 16:41:42,459|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 197001 cost 19939"}
+2026-07-30 16:41:42,559|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 198001 cost 20039"}
+2026-07-30 16:41:42,659|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 199001 cost 20139"}
+2026-07-30 16:41:42,761|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 200001 cost 20241"}
+2026-07-30 16:41:42,860|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 201002 cost 20340"}
+2026-07-30 16:41:42,960|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 202001 cost 20440"}
+2026-07-30 16:41:43,063|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 203001 cost 20542"}
+2026-07-30 16:41:43,159|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 204001 cost 20639"}
+2026-07-30 16:41:43,257|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 205001 cost 20736"}
+2026-07-30 16:41:43,357|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 206001 cost 20837"}
+2026-07-30 16:41:43,457|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 207001 cost 20937"}
+2026-07-30 16:41:43,559|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 208001 cost 21038"}
+2026-07-30 16:41:43,656|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 209001 cost 21136"}
+2026-07-30 16:41:43,758|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 210001 cost 21238"}
+2026-07-30 16:41:43,858|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 211001 cost 21338"}
+2026-07-30 16:41:43,959|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 212001 cost 21439"}
+2026-07-30 16:41:44,060|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 213001 cost 21540"}
+2026-07-30 16:41:44,163|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 214001 cost 21643"}
+2026-07-30 16:41:44,263|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 215001 cost 21743"}
+2026-07-30 16:41:44,363|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 216001 cost 21842"}
+2026-07-30 16:41:44,462|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 217001 cost 21942"}
+2026-07-30 16:41:44,564|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 218001 cost 22044"}
+2026-07-30 16:41:44,675|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 219001 cost 22155"}
+2026-07-30 16:41:44,783|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 220001 cost 22263"}
+2026-07-30 16:41:44,891|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 221001 cost 22371"}
+2026-07-30 16:41:44,990|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 222001 cost 22470"}
+2026-07-30 16:41:45,084|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 223001 cost 22564"}
+2026-07-30 16:41:45,189|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 224001 cost 22669"}
+2026-07-30 16:41:45,295|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 225001 cost 22775"}
+2026-07-30 16:41:45,404|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 226001 cost 22884"}
+2026-07-30 16:41:45,515|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 227001 cost 22994"}
+2026-07-30 16:41:45,627|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 228001 cost 23107"}
+2026-07-30 16:41:45,737|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 229001 cost 23217"}
+2026-07-30 16:41:45,845|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 230001 cost 23325"}
+2026-07-30 16:41:45,953|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 231001 cost 23433"}
+2026-07-30 16:41:46,062|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 232001 cost 23542"}
+2026-07-30 16:41:46,168|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 233001 cost 23648"}
+2026-07-30 16:41:46,271|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 234001 cost 23751"}
+2026-07-30 16:41:46,376|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 235001 cost 23856"}
+2026-07-30 16:41:46,481|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 236001 cost 23961"}
+2026-07-30 16:41:46,587|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 237001 cost 24067"}
+2026-07-30 16:41:46,694|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 238001 cost 24173"}
+2026-07-30 16:41:46,798|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 239002 cost 24278"}
+2026-07-30 16:41:46,906|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 240001 cost 24386"}
+2026-07-30 16:41:47,012|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 241001 cost 24492"}
+2026-07-30 16:41:47,120|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 242001 cost 24600"}
+2026-07-30 16:41:47,227|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 243001 cost 24707"}
+2026-07-30 16:41:47,336|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 244001 cost 24815"}
+2026-07-30 16:41:47,439|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 245001 cost 24919"}
+2026-07-30 16:41:47,542|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 246001 cost 25022"}
+2026-07-30 16:41:47,646|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 247001 cost 25126"}
+2026-07-30 16:41:47,753|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 248001 cost 25233"}
+2026-07-30 16:41:47,858|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 249001 cost 25338"}
+2026-07-30 16:41:47,964|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 250001 cost 25443"}
+2026-07-30 16:41:48,072|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 251001 cost 25552"}
+2026-07-30 16:41:48,178|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 252001 cost 25658"}
+2026-07-30 16:41:48,284|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 253001 cost 25764"}
+2026-07-30 16:41:48,391|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 254001 cost 25871"}
+2026-07-30 16:41:48,500|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 255001 cost 25979"}
+2026-07-30 16:41:48,608|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 256001 cost 26088"}
+2026-07-30 16:41:48,713|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 257001 cost 26193"}
+2026-07-30 16:41:48,825|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 258001 cost 26305"}
+2026-07-30 16:41:48,933|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 259001 cost 26413"}
+2026-07-30 16:41:49,039|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 260001 cost 26519"}
+2026-07-30 16:41:49,153|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 261001 cost 26633"}
+2026-07-30 16:41:49,265|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 262001 cost 26744"}
+2026-07-30 16:41:49,379|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 263001 cost 26859"}
+2026-07-30 16:41:49,498|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 264001 cost 26978"}
+2026-07-30 16:41:49,619|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 265001 cost 27099"}
+2026-07-30 16:41:49,731|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 266001 cost 27211"}
+2026-07-30 16:41:49,835|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 267001 cost 27315"}
+2026-07-30 16:41:49,940|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 268001 cost 27420"}
+2026-07-30 16:41:50,047|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 269001 cost 27527"}
+2026-07-30 16:41:50,152|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 270001 cost 27632"}
+2026-07-30 16:41:50,253|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 271001 cost 27733"}
+2026-07-30 16:41:50,354|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 272001 cost 27834"}
+2026-07-30 16:41:50,456|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 273001 cost 27936"}
+2026-07-30 16:41:50,558|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 274001 cost 28038"}
+2026-07-30 16:41:50,662|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 275001 cost 28142"}
+2026-07-30 16:41:50,765|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 276001 cost 28245"}
+2026-07-30 16:41:50,868|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 277001 cost 28348"}
+2026-07-30 16:41:50,969|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 278001 cost 28449"}
+2026-07-30 16:41:51,072|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 279001 cost 28552"}
+2026-07-30 16:41:51,174|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 280001 cost 28654"}
+2026-07-30 16:41:51,277|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 281001 cost 28756"}
+2026-07-30 16:41:51,379|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 282001 cost 28859"}
+2026-07-30 16:41:51,481|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 283001 cost 28961"}
+2026-07-30 16:41:51,586|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 284001 cost 29066"}
+2026-07-30 16:41:51,693|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 285001 cost 29172"}
+2026-07-30 16:41:51,799|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 286001 cost 29279"}
+2026-07-30 16:41:51,906|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 287001 cost 29386"}
+2026-07-30 16:41:52,013|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 288001 cost 29493"}
+2026-07-30 16:41:52,117|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 289001 cost 29597"}
+2026-07-30 16:41:52,218|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 290001 cost 29698"}
+2026-07-30 16:41:52,322|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 291001 cost 29802"}
+2026-07-30 16:41:52,424|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 292001 cost 29904"}
+2026-07-30 16:41:52,526|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 293001 cost 30006"}
+2026-07-30 16:41:52,629|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 294001 cost 30109"}
+2026-07-30 16:41:52,730|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 295001 cost 30210"}
+2026-07-30 16:41:52,833|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 296001 cost 30313"}
+2026-07-30 16:41:52,940|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 297001 cost 30420"}
+2026-07-30 16:41:53,044|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 298001 cost 30524"}
+2026-07-30 16:41:53,147|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 299002 cost 30627"}
+2026-07-30 16:41:53,250|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 300001 cost 30730"}
+2026-07-30 16:41:53,352|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 301001 cost 30832"}
+2026-07-30 16:41:53,458|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 302001 cost 30938"}
+2026-07-30 16:41:53,560|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 303001 cost 31040"}
+2026-07-30 16:41:53,664|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 304001 cost 31144"}
+2026-07-30 16:41:53,773|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 305001 cost 31253"}
+2026-07-30 16:41:53,883|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 306001 cost 31363"}
+2026-07-30 16:41:53,989|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 307001 cost 31469"}
+2026-07-30 16:41:54,096|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 308001 cost 31576"}
+2026-07-30 16:41:54,201|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 309001 cost 31681"}
+2026-07-30 16:41:54,307|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 310001 cost 31787"}
+2026-07-30 16:41:54,412|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 311001 cost 31891"}
+2026-07-30 16:41:54,520|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 312001 cost 32000"}
+2026-07-30 16:41:54,623|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 313001 cost 32103"}
+2026-07-30 16:41:54,730|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 314001 cost 32210"}
+2026-07-30 16:41:54,836|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 315001 cost 32316"}
+2026-07-30 16:41:54,942|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 316001 cost 32422"}
+2026-07-30 16:41:55,047|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 317001 cost 32527"}
+2026-07-30 16:41:55,153|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 318002 cost 32633"}
+2026-07-30 16:41:55,260|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 319001 cost 32739"}
+2026-07-30 16:41:55,366|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 320001 cost 32846"}
+2026-07-30 16:41:55,472|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 321001 cost 32952"}
+2026-07-30 16:41:55,576|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 322001 cost 33056"}
+2026-07-30 16:41:55,685|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 323001 cost 33164"}
+2026-07-30 16:41:55,794|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 324001 cost 33274"}
+2026-07-30 16:41:55,903|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 325001 cost 33383"}
+2026-07-30 16:41:56,012|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 326001 cost 33492"}
+2026-07-30 16:41:56,123|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 327001 cost 33603"}
+2026-07-30 16:41:56,231|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 328001 cost 33711"}
+2026-07-30 16:41:56,341|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 329001 cost 33820"}
+2026-07-30 16:41:56,452|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 330001 cost 33932"}
+2026-07-30 16:41:56,561|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 331001 cost 34040"}
+2026-07-30 16:41:56,670|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 332001 cost 34149"}
+2026-07-30 16:41:56,781|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 333001 cost 34260"}
+2026-07-30 16:41:56,890|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 334001 cost 34370"}
+2026-07-30 16:41:56,999|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 335001 cost 34479"}
+2026-07-30 16:41:57,111|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 336001 cost 34591"}
+2026-07-30 16:41:57,223|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 337001 cost 34702"}
+2026-07-30 16:41:57,336|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 338001 cost 34816"}
+2026-07-30 16:41:57,447|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 339001 cost 34927"}
+2026-07-30 16:41:57,556|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 340001 cost 35036"}
+2026-07-30 16:41:57,669|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 341001 cost 35149"}
+2026-07-30 16:41:57,778|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 342001 cost 35258"}
+2026-07-30 16:41:57,889|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 343002 cost 35369"}
+2026-07-30 16:41:58,000|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 344001 cost 35480"}
+2026-07-30 16:41:58,110|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 345001 cost 35590"}
+2026-07-30 16:41:58,220|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 346001 cost 35700"}
+2026-07-30 16:41:58,328|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 347001 cost 35807"}
+2026-07-30 16:41:58,437|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 348001 cost 35917"}
+2026-07-30 16:41:58,543|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 349001 cost 36023"}
+2026-07-30 16:41:58,647|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 350001 cost 36127"}
+2026-07-30 16:41:58,752|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 351001 cost 36232"}
+2026-07-30 16:41:58,860|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 352001 cost 36339"}
+2026-07-30 16:41:58,966|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 353001 cost 36446"}
+2026-07-30 16:41:59,073|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 354001 cost 36553"}
+2026-07-30 16:41:59,178|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 355001 cost 36658"}
+2026-07-30 16:41:59,279|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 356001 cost 36759"}
+2026-07-30 16:41:59,383|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 357001 cost 36863"}
+2026-07-30 16:41:59,487|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 358001 cost 36966"}
+2026-07-30 16:41:59,590|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 359002 cost 37070"}
+2026-07-30 16:41:59,694|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 360001 cost 37174"}
+2026-07-30 16:41:59,799|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 361001 cost 37279"}
+2026-07-30 16:41:59,905|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 362001 cost 37385"}
+2026-07-30 16:42:00,012|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 363001 cost 37491"}
+2026-07-30 16:42:00,115|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 364001 cost 37595"}
+2026-07-30 16:42:00,219|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 365001 cost 37698"}
+2026-07-30 16:42:00,322|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 366001 cost 37802"}
+2026-07-30 16:42:00,427|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 367001 cost 37907"}
+2026-07-30 16:42:00,531|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 368001 cost 38010"}
+2026-07-30 16:42:00,633|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 369001 cost 38113"}
+2026-07-30 16:42:00,736|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 370001 cost 38216"}
+2026-07-30 16:42:00,838|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 371001 cost 38318"}
+2026-07-30 16:42:00,943|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 372001 cost 38423"}
+2026-07-30 16:42:01,049|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 373001 cost 38529"}
+2026-07-30 16:42:01,151|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 374001 cost 38631"}
+2026-07-30 16:42:01,256|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 375001 cost 38736"}
+2026-07-30 16:42:01,360|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 376001 cost 38840"}
+2026-07-30 16:42:01,477|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 377001 cost 38957"}
+2026-07-30 16:42:01,587|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 378001 cost 39067"}
+2026-07-30 16:42:01,698|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 379001 cost 39178"}
+2026-07-30 16:42:01,807|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 380001 cost 39287"}
+2026-07-30 16:42:01,913|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 381001 cost 39393"}
+2026-07-30 16:42:02,019|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 382001 cost 39499"}
+2026-07-30 16:42:02,127|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 383001 cost 39606"}
+2026-07-30 16:42:02,233|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 384001 cost 39713"}
+2026-07-30 16:42:02,340|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 385001 cost 39820"}
+2026-07-30 16:42:02,446|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 386001 cost 39926"}
+2026-07-30 16:42:02,553|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 387001 cost 40033"}
+2026-07-30 16:42:02,660|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 388001 cost 40140"}
+2026-07-30 16:42:02,765|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 389001 cost 40245"}
+2026-07-30 16:42:02,873|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 390001 cost 40353"}
+2026-07-30 16:42:02,980|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 391001 cost 40460"}
+2026-07-30 16:42:03,086|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 392001 cost 40566"}
+2026-07-30 16:42:03,193|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 393001 cost 40673"}
+2026-07-30 16:42:03,298|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 394001 cost 40778"}
+2026-07-30 16:42:03,405|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 395001 cost 40885"}
+2026-07-30 16:42:03,511|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 396001 cost 40991"}
+2026-07-30 16:42:03,619|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 397001 cost 41099"}
+2026-07-30 16:42:03,730|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 398001 cost 41210"}
+2026-07-30 16:42:03,838|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 399001 cost 41317"}
+2026-07-30 16:42:03,947|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 400001 cost 41426"}
+2026-07-30 16:42:04,054|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 401001 cost 41534"}
+2026-07-30 16:42:04,165|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 402001 cost 41644"}
+2026-07-30 16:42:04,272|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 403001 cost 41752"}
+2026-07-30 16:42:04,380|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 404001 cost 41860"}
+2026-07-30 16:42:04,489|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 405001 cost 41969"}
+2026-07-30 16:42:04,596|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 406001 cost 42076"}
+2026-07-30 16:42:04,706|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 407001 cost 42185"}
+2026-07-30 16:42:04,814|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 408001 cost 42294"}
+2026-07-30 16:42:04,922|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 409001 cost 42402"}
+2026-07-30 16:42:05,032|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 410001 cost 42512"}
+2026-07-30 16:42:05,143|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 411001 cost 42623"}
+2026-07-30 16:42:05,254|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 412001 cost 42734"}
+2026-07-30 16:42:05,363|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 413001 cost 42843"}
+2026-07-30 16:42:05,475|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 414001 cost 42955"}
+2026-07-30 16:42:05,584|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 415001 cost 43064"}
+2026-07-30 16:42:05,696|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 416001 cost 43175"}
+2026-07-30 16:42:05,806|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 417001 cost 43286"}
+2026-07-30 16:42:05,915|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 418001 cost 43395"}
+2026-07-30 16:42:06,024|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 419001 cost 43504"}
+2026-07-30 16:42:06,132|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 420001 cost 43612"}
+2026-07-30 16:42:06,241|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 421002 cost 43721"}
+2026-07-30 16:42:06,353|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 422001 cost 43833"}
+2026-07-30 16:42:06,467|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 423001 cost 43947"}
+2026-07-30 16:42:06,573|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 424001 cost 44053"}
+2026-07-30 16:42:06,681|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 425001 cost 44161"}
+2026-07-30 16:42:06,791|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 426001 cost 44271"}
+2026-07-30 16:42:06,899|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 427001 cost 44379"}
+2026-07-30 16:42:07,006|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 428001 cost 44485"}
+2026-07-30 16:42:07,113|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 429001 cost 44593"}
+2026-07-30 16:42:07,223|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 430001 cost 44703"}
+2026-07-30 16:42:07,336|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 431001 cost 44816"}
+2026-07-30 16:42:07,444|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 432001 cost 44924"}
+2026-07-30 16:42:07,554|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 433001 cost 45034"}
+2026-07-30 16:42:07,667|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 434001 cost 45147"}
+2026-07-30 16:42:07,775|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 435001 cost 45255"}
+2026-07-30 16:42:07,888|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 436001 cost 45368"}
+2026-07-30 16:42:08,001|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 437001 cost 45481"}
+2026-07-30 16:42:08,115|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 438001 cost 45595"}
+2026-07-30 16:42:08,227|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 439001 cost 45707"}
+2026-07-30 16:42:08,339|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 440001 cost 45819"}
+2026-07-30 16:42:08,449|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 441001 cost 45929"}
+2026-07-30 16:42:08,557|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 442001 cost 46037"}
+2026-07-30 16:42:08,670|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 443001 cost 46150"}
+2026-07-30 16:42:08,784|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 444001 cost 46264"}
+2026-07-30 16:42:08,898|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 445001 cost 46378"}
+2026-07-30 16:42:09,011|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 446001 cost 46491"}
+2026-07-30 16:42:09,122|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 447001 cost 46602"}
+2026-07-30 16:42:09,236|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 448001 cost 46716"}
+2026-07-30 16:42:09,347|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 449001 cost 46827"}
+2026-07-30 16:42:09,460|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 450001 cost 46940"}
+2026-07-30 16:42:09,575|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 451001 cost 47055"}
+2026-07-30 16:42:09,689|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 452001 cost 47169"}
+2026-07-30 16:42:09,801|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 453002 cost 47281"}
+2026-07-30 16:42:09,915|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 454001 cost 47395"}
+2026-07-30 16:42:10,030|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 455001 cost 47510"}
+2026-07-30 16:42:10,147|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 456001 cost 47627"}
+2026-07-30 16:42:10,260|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 457001 cost 47740"}
+2026-07-30 16:42:10,374|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 458001 cost 47854"}
+2026-07-30 16:42:10,488|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 459001 cost 47967"}
+2026-07-30 16:42:10,601|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 460001 cost 48081"}
+2026-07-30 16:42:10,718|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 461001 cost 48198"}
+2026-07-30 16:42:10,835|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 462001 cost 48315"}
+2026-07-30 16:42:10,952|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 463001 cost 48432"}
+2026-07-30 16:42:11,069|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 464002 cost 48549"}
+2026-07-30 16:42:11,187|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 465001 cost 48666"}
+2026-07-30 16:42:11,304|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 466001 cost 48784"}
+2026-07-30 16:42:11,417|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 467001 cost 48897"}
+2026-07-30 16:42:11,530|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 468001 cost 49010"}
+2026-07-30 16:42:11,643|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 469001 cost 49123"}
+2026-07-30 16:42:11,756|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 470001 cost 49235"}
+2026-07-30 16:42:11,872|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 471001 cost 49352"}
+2026-07-30 16:42:11,986|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 472001 cost 49466"}
+2026-07-30 16:42:12,101|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 473001 cost 49581"}
+2026-07-30 16:42:12,215|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 474001 cost 49695"}
+2026-07-30 16:42:12,328|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 475001 cost 49808"}
+2026-07-30 16:42:12,441|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 476001 cost 49921"}
+2026-07-30 16:42:12,554|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 477001 cost 50034"}
+2026-07-30 16:42:12,669|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 478001 cost 50148"}
+2026-07-30 16:42:12,781|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 479001 cost 50261"}
+2026-07-30 16:42:12,894|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 480001 cost 50374"}
+2026-07-30 16:42:13,009|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 481001 cost 50489"}
+2026-07-30 16:42:13,121|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 482001 cost 50601"}
+2026-07-30 16:42:13,237|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 483001 cost 50717"}
+2026-07-30 16:42:13,350|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 484001 cost 50829"}
+2026-07-30 16:42:13,464|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 485002 cost 50944"}
+2026-07-30 16:42:13,576|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 486001 cost 51056"}
+2026-07-30 16:42:13,690|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 487001 cost 51170"}
+2026-07-30 16:42:13,801|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 488001 cost 51281"}
+2026-07-30 16:42:13,916|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 489001 cost 51395"}
+2026-07-30 16:42:14,029|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 490001 cost 51508"}
+2026-07-30 16:42:14,141|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 491001 cost 51621"}
+2026-07-30 16:42:14,254|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 492001 cost 51733"}
+2026-07-30 16:42:14,368|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 493001 cost 51848"}
+2026-07-30 16:42:14,483|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 494001 cost 51963"}
+2026-07-30 16:42:14,595|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 495001 cost 52075"}
+2026-07-30 16:42:14,707|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 496001 cost 52187"}
+2026-07-30 16:42:14,821|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 497001 cost 52301"}
+2026-07-30 16:42:14,934|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 498001 cost 52414"}
+2026-07-30 16:42:15,047|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 499001 cost 52526"}
+2026-07-30 16:42:15,161|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 500001 cost 52641"}
+2026-07-30 16:42:15,274|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 501001 cost 52754"}
+2026-07-30 16:42:15,388|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 502001 cost 52868"}
+2026-07-30 16:42:15,504|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 503001 cost 52984"}
+2026-07-30 16:42:15,618|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 504001 cost 53097"}
+2026-07-30 16:42:15,735|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 505001 cost 53215"}
+2026-07-30 16:42:15,848|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 506002 cost 53328"}
+2026-07-30 16:42:15,958|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 507001 cost 53438"}
+2026-07-30 16:42:16,067|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 508001 cost 53547"}
+2026-07-30 16:42:16,180|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 509001 cost 53660"}
+2026-07-30 16:42:16,293|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 510001 cost 53773"}
+2026-07-30 16:42:16,400|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 511001 cost 53880"}
+2026-07-30 16:42:16,505|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 512001 cost 53985"}
+2026-07-30 16:42:16,613|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 513001 cost 54093"}
+2026-07-30 16:42:16,722|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 514001 cost 54202"}
+2026-07-30 16:42:16,830|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 515001 cost 54310"}
+2026-07-30 16:42:16,935|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 516001 cost 54415"}
+2026-07-30 16:42:17,043|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 517001 cost 54523"}
+2026-07-30 16:42:17,151|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 518001 cost 54631"}
+2026-07-30 16:42:17,257|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 519001 cost 54737"}
+2026-07-30 16:42:17,367|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 520001 cost 54847"}
+2026-07-30 16:42:17,477|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 521001 cost 54956"}
+2026-07-30 16:42:17,583|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 522001 cost 55063"}
+2026-07-30 16:42:17,691|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 523001 cost 55171"}
+2026-07-30 16:42:17,798|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 524001 cost 55278"}
+2026-07-30 16:42:17,905|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 525001 cost 55385"}
+2026-07-30 16:42:18,012|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 526001 cost 55491"}
+2026-07-30 16:42:18,121|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 527001 cost 55601"}
+2026-07-30 16:42:18,230|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 528001 cost 55710"}
+2026-07-30 16:42:18,339|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 529001 cost 55819"}
+2026-07-30 16:42:18,448|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 530001 cost 55928"}
+2026-07-30 16:42:18,558|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 531001 cost 56038"}
+2026-07-30 16:42:18,666|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 532001 cost 56145"}
+2026-07-30 16:42:18,772|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 533001 cost 56252"}
+2026-07-30 16:42:18,883|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 534001 cost 56363"}
+2026-07-30 16:42:18,991|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 535001 cost 56471"}
+2026-07-30 16:42:19,100|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 536001 cost 56580"}
+2026-07-30 16:42:19,209|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 537001 cost 56689"}
+2026-07-30 16:42:19,317|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 538001 cost 56797"}
+2026-07-30 16:42:19,423|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 539001 cost 56903"}
+2026-07-30 16:42:19,533|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 540001 cost 57012"}
+2026-07-30 16:42:19,640|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 541001 cost 57119"}
+2026-07-30 16:42:19,747|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 542001 cost 57227"}
+2026-07-30 16:42:19,855|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 543001 cost 57335"}
+2026-07-30 16:42:19,962|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 544001 cost 57442"}
+2026-07-30 16:42:20,067|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 545001 cost 57547"}
+2026-07-30 16:42:20,174|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 546001 cost 57654"}
+2026-07-30 16:42:20,279|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 547001 cost 57758"}
+2026-07-30 16:42:20,385|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 548001 cost 57865"}
+2026-07-30 16:42:20,491|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 549001 cost 57971"}
+2026-07-30 16:42:20,596|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 550001 cost 58075"}
+2026-07-30 16:42:20,699|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 551001 cost 58179"}
+2026-07-30 16:42:20,803|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 552001 cost 58282"}
+2026-07-30 16:42:20,906|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 553001 cost 58386"}
+2026-07-30 16:42:21,010|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 554001 cost 58489"}
+2026-07-30 16:42:21,111|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 555001 cost 58591"}
+2026-07-30 16:42:21,216|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 556001 cost 58696"}
+2026-07-30 16:42:21,321|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 557001 cost 58801"}
+2026-07-30 16:42:21,419|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 558001 cost 58899"}
+2026-07-30 16:42:21,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 559001 cost 59001"}
+2026-07-30 16:42:21,625|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 560001 cost 59105"}
+2026-07-30 16:42:21,731|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 561001 cost 59210"}
+2026-07-30 16:42:21,836|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 562002 cost 59315"}
+2026-07-30 16:42:21,940|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 563001 cost 59420"}
+2026-07-30 16:42:22,045|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 564001 cost 59525"}
+2026-07-30 16:42:22,149|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 565001 cost 59629"}
+2026-07-30 16:42:22,252|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 566001 cost 59732"}
+2026-07-30 16:42:22,356|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 567001 cost 59836"}
+2026-07-30 16:42:22,460|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:166] 568001 cost 59940"}
+2026-07-30 16:42:22,520|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 14"}
+2026-07-30 16:42:22,520|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 13"}
+2026-07-30 16:42:22,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 18"}
+2026-07-30 16:42:22,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 3"}
+2026-07-30 16:42:22,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 10"}
+2026-07-30 16:42:22,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 17"}
+2026-07-30 16:42:22,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 16"}
+2026-07-30 16:42:22,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 5"}
+2026-07-30 16:42:22,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 1"}
+2026-07-30 16:42:22,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 2"}
+2026-07-30 16:42:22,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 8"}
+2026-07-30 16:42:22,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 9"}
+2026-07-30 16:42:22,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 12"}
+2026-07-30 16:42:22,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 0"}
+2026-07-30 16:42:22,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 7"}
+2026-07-30 16:42:22,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 6"}
+2026-07-30 16:42:22,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 11"}
+2026-07-30 16:42:22,524|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 4"}
+2026-07-30 16:42:22,527|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 19"}
+2026-07-30 16:42:22,955|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:232] thread end: 15"}
+2026-07-30 16:42:23,520|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 0 ms,num: 35"}
+2026-07-30 16:42:23,520|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 1 ms,num: 7326"}
+2026-07-30 16:42:23,520|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 2 ms,num: 49195"}
+2026-07-30 16:42:23,520|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 3 ms,num: 12386"}
+2026-07-30 16:42:23,520|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 4 ms,num: 3791"}
+2026-07-30 16:42:23,520|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 5 ms,num: 21710"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 6 ms,num: 45250"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 7 ms,num: 6501"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 8 ms,num: 1398"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 9 ms,num: 754"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 10 ms,num: 577"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 11 ms,num: 415"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 12 ms,num: 281"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 13 ms,num: 222"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 14 ms,num: 217"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 15 ms,num: 166"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 16 ms,num: 90"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 17 ms,num: 73"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 18 ms,num: 53"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 19 ms,num: 75"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 20 ms,num: 60"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 21 ms,num: 39"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 22 ms,num: 14"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 23 ms,num: 3"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 24 ms,num: 3"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 25 ms,num: 4"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 26 ms,num: 3"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 27 ms,num: 5"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 28 ms,num: 5"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 29 ms,num: 6"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 30 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 31 ms,num: 4"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 33 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 41 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 49 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 53 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 54 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 57 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 118 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 119 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 120 ms,num: 5"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 121 ms,num: 5"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 122 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 123 ms,num: 4"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 124 ms,num: 7"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 125 ms,num: 10"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 126 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 127 ms,num: 10"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 128 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 129 ms,num: 4"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 130 ms,num: 4"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 131 ms,num: 4"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 132 ms,num: 10"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 133 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 134 ms,num: 6"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 135 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 136 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 137 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 140 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 141 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 142 ms,num: 4"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 143 ms,num: 6"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 144 ms,num: 8"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 145 ms,num: 8"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 146 ms,num: 12"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 147 ms,num: 12"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 148 ms,num: 18"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 149 ms,num: 12"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 150 ms,num: 6"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 151 ms,num: 4"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 153 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 154 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 155 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 156 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 575 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 585 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 586 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 588 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 593 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 594 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 595 ms,num: 3"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 596 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 597 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 599 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 600 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 606 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 607 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 617 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 618 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 619 ms,num: 4"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 620 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 622 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 623 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 624 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 625 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 630 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 635 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 645 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 646 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 647 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 648 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 649 ms,num: 3"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 650 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 651 ms,num: 3"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 652 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 654 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 655 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 656 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 657 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 658 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 659 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 660 ms,num: 4"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 661 ms,num: 3"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 662 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 663 ms,num: 3"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 664 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 665 ms,num: 2"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 666 ms,num: 1"}
+2026-07-30 16:42:23,521|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 667 ms,num: 1"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 668 ms,num: 3"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 670 ms,num: 1"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 671 ms,num: 1"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 672 ms,num: 1"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 673 ms,num: 3"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 676 ms,num: 1"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:248]  cost: 677 ms,num: 1"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:251] thread: 20 total_req: 568587 suc_num: 150935 fail_num: 417652"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:253] total_qps: 9476.45 suc_qps: 2515.58"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:254] total retrieve_num: 307077166 avg retrieve_num: 2034.5"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:256] total result_num: 281983989 avg result_num: 1868.25"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:265] p99: 12"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:268] p95: 7"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:271] p90: 6"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:274] p80: 6"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:277] p70: 6"}
+2026-07-30 16:42:23,522|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:280] p50: 5"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:294] scores info:"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:295] no doc return num:24107"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:296] scored num:126828"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:297] min avg score: 1"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:298] max avg score: 1"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:299] avg score p99.9:1"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:300] avg score p99: 1"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:301] avg score p95: 1"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:302] avg score p90: 1"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:303] avg score p80: 1"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:304] avg score p70: 1"}
+2026-07-30 16:42:23,523|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:305] avg score p50: 1"}
