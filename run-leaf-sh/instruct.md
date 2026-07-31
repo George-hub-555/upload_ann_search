@@ -66,7 +66,7 @@ LEAF_PORT=6335 PERF_THREADS=9 PERF_SECONDS=60 PERF_STUB_NUM=10 \
 ```
 
 ```
-LEAF_PORT=6335 PERF_THREADS=1 PERF_SECONDS=60 PERF_STUB_NUM=1 \
+LEAF_PORT=6335 PERF_THREADS=9 PERF_SECONDS=60 PERF_STUB_NUM=10 \
 bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_package_arm64.sh perf \
 dataset/1kw_64dim_test_data/falcon_request_new.txt
 ```
