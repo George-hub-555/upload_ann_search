@@ -57,3 +57,35 @@ PERF_ROUND=2 PERF_THREADS=20 ...
 ```
 
 对应生成 `per_thread20_round1.log`、`per_thread20_round2.log`。
+
+
+
+已新增独立脚本：[run_leaf_perf_sweep_arm64.sh](E:/Graduation/GPTproject/FS/falcon/tools/test/perf/run_leaf_perf_sweep_arm64.sh)。
+
+本次没有修改任何现有脚本或 C++ 文件。已通过 `bash -n`，并确认使用 Linux LF 换行。
+
+将它复制到 B：
+
+```text
+leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_sweep_arm64.sh
+```
+
+Leaf 提前启动后运行：
+
+```bash
+cd /opt/huawei/data3/g50064150/falcon
+
+LEAF_PORT=6335 PERF_SECONDS=60 PERF_STUB_NUM=10 \
+bash leaf_perf_runtime/leaf_perf_arm64_bazel65/run_leaf_perf_sweep_arm64.sh \
+dataset/1kw_64dim_test_data/falcon_request_new.txt
+```
+
+脚本会：
+
+- 自动执行5轮、共45次压测。
+- 正序和倒序交替。
+- 每组间隔20秒。
+- 不启动、停止或终止 Leaf。
+- 生成 `001_round1_thread1.log` 至 `045_round5_thread20.log`。
+- 日志保存在 `runtime_6335/sweep_results/`。
+- 同名日志已存在时拒绝覆盖。
