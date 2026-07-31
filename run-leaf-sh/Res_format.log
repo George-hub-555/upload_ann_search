@@ -1,0 +1,22 @@
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:251] thread: 1 total_req: 17982 suc_num: 17982 fail_num: 0"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:253] total_qps: 299.7 suc_qps: 299.7"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:254] total retrieve_num: 36104999 avg retrieve_num: 2007.84"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:256] total result_num: 33556027 avg result_num: 1866.09"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:265] p99: 6"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:268] p95: 5"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:271] p90: 5"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:274] p80: 5"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:277] p70: 5"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:280] p50: 3"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:294] scores info:"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:295] no doc return num:2852"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:296] scored num:15130"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:297] min avg score: 1"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:298] max avg score: 1"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:299] avg score p99.9:1"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:300] avg score p99: 1"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:301] avg score p95: 1"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:302] avg score p90: 1"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:303] avg score p80: 1"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:304] avg score p70: 1"}
+2026-07-31 11:23:23,572|INFO|{"address": "127.0.0.1", "details": "[tools/test/perf/perf.cpp:305] avg score p50: 1"}
