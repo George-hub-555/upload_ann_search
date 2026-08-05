@@ -1,3 +1,25 @@
+```
+{
+    "$schema": "https://opencode.ai/config.json",
+    "provider": {
+        "csi-provider": {
+            "name": "csi.ai",
+            "npm": "@ai-sdk/openai-compatible",
+            "options": {
+                "apiKey": "YOUR_API_KEY",
+                "baseURL": "http://113.46.219.251:8080/v1",
+                "setCacheKey": true
+            },
+            "models": {
+                "YOUR_MODEL_NAME": {
+                    "name": "YOUR_MODEL_NAME"
+                }
+            }
+        }
+    }
+}
+```
+
 # upload_ann_search
 upload ann search for arm
 
