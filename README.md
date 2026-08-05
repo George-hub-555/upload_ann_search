@@ -6,20 +6,26 @@
             "name": "csi.ai",
             "npm": "@ai-sdk/openai-compatible",
             "options": {
-                "apiKey": "YOUR_API_KEY",
+                "apiKey": "sk-uxqRBnpvlFAhazxcyMEQfg",
                 "baseURL": "http://113.46.219.251:8080/v1",
                 "setCacheKey": true
             },
             "models": {
-                "YOUR_MODEL_NAME": {
-                    "name": "YOUR_MODEL_NAME"
+                "GLM-5.2": {
+                    "name": "GLM-5.2"
                 }
             }
         }
     }
 }
 ```
-
+# jsonc
+```
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["C:\\Users\\11458\\.config\\opencode\\AGENTS.md"]
+}
+```
 # upload_ann_search
 upload ann search for arm
 
