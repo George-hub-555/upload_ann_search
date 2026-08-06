@@ -1,0 +1,3 @@
+$TEST_TMPDIR defined: output root default is '/opt/huawei/data1/bazel-cache' and max_idle_secs default is '15'.
+Starting local Bazel server and connecting to it...
+ERROR: Config value 'linux_arm64' is not defined in any .rc file
