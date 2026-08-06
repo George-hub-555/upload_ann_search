@@ -1,3 +1,21 @@
 $TEST_TMPDIR defined: output root default is '/opt/huawei/data1/bazel-cache' and max_idle_secs default is '15'.
 Starting local Bazel server and connecting to it...
 ERROR: Config value 'linux_arm64' is not defined in any .rc file
+
+
+[root@szvphis13378587 linux_falcon_zsq]# ./build.sh
+[build] compiling linux_falcon_zsq_test (this may take a few minutes)...
+$TEST_TMPDIR defined: output root default is '/opt/huawei/data1/bazel-cache' and max_idle_secs default is '15'.
+Starting local Bazel server and connecting to it...
+INFO: Repository com_google_googletest instantiated at:
+  /root/g50064150/falcon/WORKSPACE:7:10: in <toplevel>
+  /root/g50064150/falcon/devel/builder/deps.bzl:16:14: in load_deps
+  /opt/huawei/data1/bazel-cache/_bazel_root/c309df92d697e21992c95b5ef7ff6b65/external/bazel_tools/tools/build_defs/repo/utils.bzl:233:18: in maybe
+Repository rule http_archive defined at:
+  /opt/huawei/data1/bazel-cache/_bazel_root/c309df92d697e21992c95b5ef7ff6b65/external/bazel_tools/tools/build_defs/repo/http.bzl:372:31: in <toplevel>
+ERROR: /root/g50064150/falcon/linux_falcon_zsq/BUILD:43:8: no such package 'common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec': BUILD file not found in any of the following directories. Add a BUILD file to a directory to mark it as a package.
+ - /root/g50064150/falcon/common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec and referenced by '//linux_falcon_zsq:linux_falcon_zsq_test'
+ERROR: Analysis of target '//linux_falcon_zsq:linux_falcon_zsq_test' failed; build aborted: Analysis failed
+INFO: Elapsed time: 3.478s
+INFO: 0 processes.
+FAILED: Build did NOT complete successfully (39 packages loaded, 125 targets configured)
