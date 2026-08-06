@@ -85,3 +85,6 @@ Use --verbose_failures to see the command lines of failed build steps.
 INFO: Elapsed time: 420.246s, Critical Path: 237.03s
 INFO: 1614 processes: 677 internal, 937 linux-sandbox.
 FAILED: Build did NOT complete successfully
+
+
+sed -n '43p' /root/g50064150/falcon/linux_falcon_zsq/BUILD
