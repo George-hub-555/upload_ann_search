@@ -42,16 +42,25 @@ fi
 # 2. 进入 falcon 根目录 (bazel 必须在 WORKSPACE 根执行)
 cd "$FALCON_DIR"
 
-# 3. 用 falcon 自带 bazel 二进制
+# 3. 用 falcon 自带 bazel 二进制 (路径: falcon/devel/builder/bazel-6.5.0-linux-arm64)
 BAZEL_BINARY="devel/builder/bazel-6.5.0-linux-arm64"
 if [ ! -x "$BAZEL_BINARY" ]; then
-    echo "WARN: falcon bazel not found at $BAZEL_BINARY, fallback to system bazel"
-    BAZEL_BINARY="bazel"
+    # fallback: 尝试 bazel/builder 或系统 bazel
+    if [ -x "bazel/builder/bazel-6.5.0-linux-arm64" ]; then
+        BAZEL_BINARY="bazel/builder/bazel-6.5.0-linux-arm64"
+    else
+        echo "WARN: falcon bazel not found at devel/builder/ or bazel/builder/, fallback to system bazel"
+        BAZEL_BINARY="bazel"
+    fi
 fi
 
 # 4. 编译 (bazel build, 不是 test, 只编译不运行)
+#    不用 --config=linux_arm64 (远程 .bazelrc 可能没定义), 直接传 ARMv8.2 copt
+#    SVE 路径由 config_setting (arm64_sve_enabled) 自动触发, 只需 CPU 是 aarch64
 echo "[build] compiling linux_falcon_zsq_test (this may take a few minutes)..."
-$BAZEL_BINARY build --config=linux_arm64 \
+$BAZEL_BINARY build \
+    --copt='-march=armv8.2-a+crypto+crc+dotprod' \
+    --cxxopt='-march=armv8.2-a+crypto+crc+dotprod' \
     //linux_falcon_zsq:linux_falcon_zsq_test
 
 # 5. 定位产物 (bazel-bin 是符号链接, 实际在 bazel 输出树)
