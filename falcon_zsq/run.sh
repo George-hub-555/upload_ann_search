@@ -1,83 +1,85 @@
 #!/bin/bash
-# run.sh - 在 falcon 树内创建符号链接并跑 bazel test
+# run.sh - B 机器 (测试机) 用: 运行 A 机器编译好的测试二进制
+#
+# 前提: B 机器上已经解压 A 机器打包的 dist/linux_falcon_zsq_test.tar.gz
+#   解压后目录结构:
+#   linux_falcon_zsq_test/
+#   ├── linux_falcon_zsq_test          (二进制)
+#   ├── linux_falcon_zsq_test.runfiles/ (运行时依赖 + smoke 数据)
+#   └── run.sh                         (本脚本, 从 Opencode_done/linux_falcon_zsq/ 拷来)
+#
 # 用法:
-#   ./run.sh           # smoke (1k base, 几秒)
-#   ./run.sh full      # 完整 SIFT-1M (1M base + 10k query, 构图几分钟)
-#   ./run.sh smoke     # 显式 smoke
+#   tar xzf linux_falcon_zsq_test.tar.gz
+#   cd linux_falcon_zsq_test
+#   ./run.sh smoke                          # 1k base smoke (数据在 runfiles 里)
+#   ./run.sh full /path/to/sift/dataset     # SIFT-1M full (需指定数据目录)
+#   ./run.sh list                           # 列出所有测试 case
 #
-# 目录结构假设 (相对路径):
-#   某根目录/
-#   ├── falcon/                        # falcon 源码 (含 WORKSPACE)
-#   └── Opencode_done/
-#       └── linux_falcon_zsq/          # 本脚本所在目录
-#           ├── run.sh                 # 本脚本
-#           ├── BUILD
-#           ├── linux_falcon_zsq_test.cpp
-#           └── README.md
-#
-# 跨机器: 整个 "某根目录" 拷到不同 Linux aarch64 机器, 路径都相对, 不用改.
+# 注意:
+#   - B 机器需与 A 机器相同架构 (aarch64) 和相近的 glibc 版本
+#   - 如缺 .so, 用 ldd linux_falcon_zsq_test 查依赖, 装 corresponding 包
+#   - smoke 数据 (sift_base.dat 等) 在 runfiles 里, 不需要额外数据
+#   - full 模式需要 SIFT-1M 数据集 (falcon/dataset/sift_*.fvecs)
 
 set -e
 
-# 1. 定位路径 (全部相对, 不用绝对路径)
+# 1. 定位二进制和 runfiles (相对本脚本所在目录)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-# falcon 在本目录往上两级再进 falcon: Opencode_done/linux_falcon_zsq -> ../.. -> falcon
-FALCON_DIR="$(cd "$SCRIPT_DIR/../../falcon" && pwd)"
+BIN="$SCRIPT_DIR/linux_falcon_zsq_test"
+RUNFILES="$SCRIPT_DIR/linux_falcon_zsq_test.runfiles"
 
-if [ ! -f "$FALCON_DIR/WORKSPACE" ]; then
-    echo "ERROR: falcon WORKSPACE not found at $FALCON_DIR"
-    echo "       expected: <root>/falcon/WORKSPACE"
-    echo "       current:  <root>/Opencode_done/linux_falcon_zsq/run.sh"
+if [ ! -x "$BIN" ]; then
+    echo "ERROR: binary not found or not executable: $BIN"
+    echo "       make sure you extracted the tar.gz in this directory"
+    echo "       tar xzf linux_falcon_zsq_test.tar.gz"
     exit 1
 fi
 
-# 2. 在 falcon 树内创建符号链接 (不修改 falcon 源码, 只加一个 link)
-#    falcon/linux_falcon_zsq -> Opencode_done/linux_falcon_zsq
-LINK_PATH="$FALCON_DIR/linux_falcon_zsq"
-if [ ! -L "$LINK_PATH" ]; then
-    if [ -e "$LINK_PATH" ]; then
-        echo "ERROR: $LINK_PATH exists but is not a symlink. remove it first."
-        exit 1
-    fi
-    ln -s "$SCRIPT_DIR" "$LINK_PATH"
-    echo "[setup] created symlink: $LINK_PATH -> $SCRIPT_DIR"
+if [ ! -d "$RUNFILES" ]; then
+    echo "ERROR: runfiles directory not found: $RUNFILES"
+    echo "       make sure you extracted the full tar.gz (not just the binary)"
+    exit 1
 fi
 
-# 3. 进入 falcon 根目录跑 bazel (bazel 必须在 WORKSPACE 根执行)
-cd "$FALCON_DIR"
-
-# 4. 用 falcon 自带的 bazel 二进制 (devel/builder/bazel-6.5.0-linux-arm64)
-BAZEL_BINARY="devel/builder/bazel-6.5.0-linux-arm64"
-if [ ! -x "$BAZEL_BINARY" ]; then
-    echo "ERROR: bazel binary not found: $FALCON_DIR/$BAZEL_BINARY"
-    echo "       check falcon/devel/builder/ for the correct version"
-    # 兜底: 用系统 bazel (版本可能不匹配)
-    BAZEL_BINARY="bazel"
-    echo "       fallback to system bazel: $BAZEL_BINARY"
-fi
+# 2. 设置 RUNFILES_DIR (bazel 二进制通过这个环境变量定位运行时依赖)
+export RUNFILES_DIR="$RUNFILES"
 
 MODE="${1:-smoke}"
 
 case "$MODE" in
     smoke)
-        echo "[run] smoke test (1k base, falcon/resource data)"
-        $BAZEL_BINARY test --config=linux_arm64 --test_output=all \
-            //linux_falcon_zsq:linux_falcon_zsq_test
+        # smoke: 数据 (sift_*.dat) 在 runfiles 里, 直接跑
+        echo "[run] smoke test (1k base, data in runfiles)"
+        "$BIN" --gtest_filter=FalconZSQCompare.SmokeSIFT1k
         ;;
     full)
-        echo "[run] full SIFT-1M test (1M base + 10k query)"
-        # --spawn_strategy=local: 绕过沙箱, 允许读 falcon/dataset/ (不在 bazel data 中)
-        # FALCON_SIFT_DIR: 用 $(pwd) 动态生成绝对路径 (bazel test_env 需要绝对路径)
-        $BAZEL_BINARY test --config=linux_arm64 --test_output=all --spawn_strategy=local \
-            --test_env=FALCON_SIFT_DIR="$(pwd)/falcon/dataset" \
-            --test_env=FALCON_RUN_FULL=1 \
-            --test_filter=FalconZSQCompare.FullSIFT1M \
-            //linux_falcon_zsq:linux_falcon_zsq_test
+        # full: 需要 SIFT-1M 数据集目录 (含 sift_base.fvecs 等)
+        DATA_DIR="${2:-}"
+        if [ -z "$DATA_DIR" ]; then
+            echo "ERROR: data directory not specified"
+            echo "Usage: $0 full <data_dir>"
+            echo "  data_dir should contain sift_base.fvecs, sift_query.fvecs, sift_groundtruth.ivecs"
+            echo "  e.g. ./run.sh full /path/to/falcon/dataset"
+            exit 1
+        fi
+        if [ ! -f "$DATA_DIR/sift_base.fvecs" ]; then
+            echo "ERROR: sift_base.fvecs not found in $DATA_DIR"
+            exit 1
+        fi
+        echo "[run] full SIFT-1M test (data from $DATA_DIR)"
+        export FALCON_SIFT_DIR="$DATA_DIR"
+        export FALCON_RUN_FULL=1
+        "$BIN" --gtest_filter=FalconZSQCompare.FullSIFT1M
+        ;;
+    list)
+        # 列出所有测试 case
+        "$BIN" --gtest_list_tests
         ;;
     *)
-        echo "Usage: $0 [smoke|full]"
-        echo "  smoke (default): 1k base, 几秒跑完"
-        echo "  full:            SIFT-1M, 构图几分钟"
+        echo "Usage: $0 [smoke|full <data_dir>|list]"
+        echo "  smoke (default): 1k base, data in runfiles, 几秒跑完"
+        echo "  full <dir>:     SIFT-1M, need data dir with sift_*.fvecs, 构图几分钟"
+        echo "  list:           list all test cases"
         exit 1
         ;;
 esac

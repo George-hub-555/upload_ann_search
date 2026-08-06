@@ -7,24 +7,30 @@
  * 运行环境: Linux aarch64 + falcon 自带 bazel 6.5.0 (devel/builder/bazel-6.5.0-linux-arm64)
  * 不依赖额外包,直接复用 falcon 的 builder/searcher 实现 (含 SVE 路径)
  *
- * 目录结构 (全相对路径, 跨机器拷贝不用改):
+ * 编译和测试分两台机器:
+ *   A 机器 (编译机): 有 falcon + Opencode_done, 用 build.sh 编译打包
+ *   B 机器 (测试机): 拷 tar 包, 用 run.sh 运行
+ *
+ * 目录结构 (全相对路径):
  *   某根目录/
- *   ├── falcon/                          # falcon 源码 (含 WORKSPACE)
+ *   ├── falcon/                          # falcon 源码 (A 机器需要)
  *   └── Opencode_done/
  *       └── linux_falcon_zsq/            # 本目录
- *           ├── run.sh                   # 一键运行
+ *           ├── build.sh                 # A 机器: ./build.sh -> dist/*.tar.gz
+ *           ├── run.sh                   # B 机器: ./run.sh smoke|full
  *           ├── BUILD
  *           └── linux_falcon_zsq_test.cpp
  *
- * 使用方式 (在 Opencode_done/linux_falcon_zsq/ 下执行):
- *   chmod +x run.sh
- *   ./run.sh smoke       # 1k base, 走 falcon/resource 的 bazel data, 几秒跑完
- *   ./run.sh full        # SIFT-1M, 读 falcon/dataset/, 构图几分钟
+ * A 机器流程:
+ *   cd Opencode_done/linux_falcon_zsq
+ *   ./build.sh                # 编译 + 打包
+ *   ./build.sh --run-smoke    # 可选: A 机器直接验证 smoke
  *
- * run.sh 自动:
- *   1. 在 falcon 树内创建符号链接 falcon/linux_falcon_zsq -> 本目录 (不修改 falcon 源码)
- *   2. 用 falcon 自带 bazel: devel/builder/bazel-6.5.0-linux-arm64
- *   3. 在 falcon 根目录执行 bazel test (WORKSPACE 必须在根)
+ * B 机器流程:
+ *   tar xzf linux_falcon_zsq_test.tar.gz
+ *   cd linux_falcon_zsq_test
+ *   ./run.sh smoke                            # 1k base, 数据在 runfiles
+ *   ./run.sh full /path/to/sift/dataset       # SIFT-1M, 需数据目录
  *      (bazel test 默认捕获 LOG(INFO) 输出, 加 --test_output=all 可见)
  *        bazel test --config=linux_arm64 --test_output=all --spawn_strategy=local \
  *          --test_env=FALCON_SIFT_DIR=$(pwd)/falcon/dataset \
