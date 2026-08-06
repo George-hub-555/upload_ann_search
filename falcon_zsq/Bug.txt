@@ -1,21 +1,87 @@
-$TEST_TMPDIR defined: output root default is '/opt/huawei/data1/bazel-cache' and max_idle_secs default is '15'.
-Starting local Bazel server and connecting to it...
-ERROR: Config value 'linux_arm64' is not defined in any .rc file
-
-
-[root@szvphis13378587 linux_falcon_zsq]# ./build.sh
+ ./build.sh
 [build] compiling linux_falcon_zsq_test (this may take a few minutes)...
 $TEST_TMPDIR defined: output root default is '/opt/huawei/data1/bazel-cache' and max_idle_secs default is '15'.
 Starting local Bazel server and connecting to it...
-INFO: Repository com_google_googletest instantiated at:
-  /root/g50064150/falcon/WORKSPACE:7:10: in <toplevel>
-  /root/g50064150/falcon/devel/builder/deps.bzl:16:14: in load_deps
-  /opt/huawei/data1/bazel-cache/_bazel_root/c309df92d697e21992c95b5ef7ff6b65/external/bazel_tools/tools/build_defs/repo/utils.bzl:233:18: in maybe
-Repository rule http_archive defined at:
-  /opt/huawei/data1/bazel-cache/_bazel_root/c309df92d697e21992c95b5ef7ff6b65/external/bazel_tools/tools/build_defs/repo/http.bzl:372:31: in <toplevel>
-ERROR: /root/g50064150/falcon/linux_falcon_zsq/BUILD:43:8: no such package 'common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec': BUILD file not found in any of the following directories. Add a BUILD file to a directory to mark it as a package.
- - /root/g50064150/falcon/common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec and referenced by '//linux_falcon_zsq:linux_falcon_zsq_test'
-ERROR: Analysis of target '//linux_falcon_zsq:linux_falcon_zsq_test' failed; build aborted: Analysis failed
-INFO: Elapsed time: 3.478s
-INFO: 0 processes.
-FAILED: Build did NOT complete successfully (39 packages loaded, 125 targets configured)
+INFO: Analyzed target //linux_falcon_zsq:linux_falcon_zsq_test (168 packages loaded, 89175 targets configured).
+INFO: Found 1 target...
+INFO: From Compiling upb/mini_table/extension_registry.c [for tool]:
+external/com_google_protobuf/upb/mini_table/extension_registry.c:85:1: warning: 'retain' attribute directive ignored [-Wattributes]
+   85 | UPB_LINKARR_DECLARE(upb_AllExts, const upb_MiniTableExtension);
+      | ^~~~~~~~~~~~~~~~~~~
+ERROR: /root/g50064150/falcon/linux_falcon_zsq/BUILD:43:8: Compiling linux_falcon_zsq/linux_falcon_zsq_test.cpp failed: (Exit 1): gcc failed: error executing command (from target //linux_falcon_zsq:linux_falcon_zsq_test) /usr/bin/gcc -U_FORTIFY_SOURCE -fstack-protector -Wall -Wunused-but-set-parameter -Wno-free-nonheap-object -fno-omit-frame-pointer -g0 -O2 '-D_FORTIFY_SOURCE=1' -DNDEBUG -ffunction-sections ... (remaining 137 arguments skipped)
+
+Use --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging
+linux_falcon_zsq/linux_falcon_zsq_test.cpp:19:79: error: "/*" within comment [-Werror=comment]
+   19 |  *           ├── build.sh                 # A 机器: ./build.sh -> dist/*.tar.gz
+      |                                                                        
+In file included from linux_falcon_zsq/linux_falcon_zsq_test.cpp:48:
+linux_falcon_zsq/linux_falcon_zsq_test.cpp: In member function 'bool Falcon::Common::ShardFormat::FusionIndex::FalconZSQCompareTest::LoadFullData(const string&, std::vector<std::shared_ptr<float []> >&, std::vector<std::vector<float> >&, std::vector<std::vector<int> >&)':
+linux_falcon_zsq/linux_falcon_zsq_test.cpp:320:68: error: invalid initialization of reference of type 'std::vector<std::shared_ptr<float []> >&' from expression of type 'std::vector<std::vector<float> >'
+  320 |         RETURN_FALSE_IF_FALSE(LoadFvecs(dir + "/sift_query.fvecs", queries, queryCount_, dim_));
+      |                                                                    ^~~~~~~
+./common/public/utils/common_macro.h:19:41: note: in definition of macro 'UNLIKELY'
+   19 | #define UNLIKELY(x) __builtin_expect(!!(x), 0)
+      |                                         ^
+linux_falcon_zsq/linux_falcon_zsq_test.cpp:320:9: note: in expansion of macro 'RETURN_FALSE_IF_FALSE'
+  320 |         RETURN_FALSE_IF_FALSE(LoadFvecs(dir + "/sift_query.fvecs", queries, queryCount_, dim_));
+      |         ^~~~~~~~~~~~~~~~~~~~~
+linux_falcon_zsq/linux_falcon_zsq_test.cpp:70:80: note: in passing argument 2 of 'bool Falcon::Common::ShardFormat::FusionIndex::{anonymous}::LoadFvecs(const string&, std::vector<std::shared_ptr<float []> >&, int, int)'
+   70 | bool LoadFvecs(const std::string& path, std::vector<std::shared_ptr<float[]>>& values, int count, int dim)
+      |                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from linux_falcon_zsq/linux_falcon_zsq_test.cpp:48:
+linux_falcon_zsq/linux_falcon_zsq_test.cpp: In member function 'bool Falcon::Common::ShardFormat::FusionIndex::FalconZSQCompareTest::BuildZSQ(const std::vector<std::shared_ptr<float []> >&)':
+linux_falcon_zsq/linux_falcon_zsq_test.cpp:336:54: error: cannot convert 'std::unique_ptr<Falcon::Common::ShardFormat::BundleFileWriter>' to 'std::shared_ptr<Falcon::Common::ShardFormat::BundleFileWriter>'
+  336 |         RETURN_FALSE_IF_FALSE_WITH_LOG(builder->Save(writer), "ZSQ save failed");
+      |                                                      ^~~~~~
+      |                                                      |
+      |                                                      std::unique_ptr<Falcon::Common::ShardFormat::BundleFileWriter>
+./common/public/utils/common_macro.h:19:41: note: in definition of macro 'UNLIKELY'
+   19 | #define UNLIKELY(x) __builtin_expect(!!(x), 0)
+      |                                         ^
+linux_falcon_zsq/linux_falcon_zsq_test.cpp:336:9: note: in expansion of macro 'RETURN_FALSE_IF_FALSE_WITH_LOG'
+  336 |         RETURN_FALSE_IF_FALSE_WITH_LOG(builder->Save(writer), "ZSQ save failed");
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from linux_falcon_zsq/linux_falcon_zsq_test.cpp:58:
+./common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec/blink_graph_zsq_builder.h:20:49: note:   initializing argument 1 of 'virtual bool Falcon::Common::ShardFormat::FusionIndex::BlinkGraphZSQBuilder::Save(std::shared_ptr<Falcon::Common::ShardFormat::BundleFileWriter>)'
+   20 |     bool Save(std::shared_ptr<BundleFileWriter> writer) override;
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from linux_falcon_zsq/linux_falcon_zsq_test.cpp:48:
+linux_falcon_zsq/linux_falcon_zsq_test.cpp: In member function 'bool Falcon::Common::ShardFormat::FusionIndex::FalconZSQCompareTest::BuildRaBitQBatch(const std::vector<std::shared_ptr<float []> >&)':
+linux_falcon_zsq/linux_falcon_zsq_test.cpp:348:54: error: cannot convert 'std::unique_ptr<Falcon::Common::ShardFormat::BundleFileWriter>' to 'std::shared_ptr<Falcon::Common::ShardFormat::BundleFileWriter>'
+  348 |         RETURN_FALSE_IF_FALSE_WITH_LOG(builder->Save(writer), "RaBitQ save failed");
+      |                                                      ^~~~~~
+      |                                                      |
+      |                                                      std::unique_ptr<Falcon::Common::ShardFormat::BundleFileWriter>
+./common/public/utils/common_macro.h:19:41: note: in definition of macro 'UNLIKELY'
+   19 | #define UNLIKELY(x) __builtin_expect(!!(x), 0)
+      |                                         ^
+linux_falcon_zsq/linux_falcon_zsq_test.cpp:348:9: note: in expansion of macro 'RETURN_FALSE_IF_FALSE_WITH_LOG'
+  348 |         RETURN_FALSE_IF_FALSE_WITH_LOG(builder->Save(writer), "RaBitQ save failed");
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from linux_falcon_zsq/linux_falcon_zsq_test.cpp:54:
+./common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec/blink_graph_rabitq_builder.h:32:57: note:   initializing argument 1 of 'virtual bool Falcon::Common::ShardFormat::FusionIndex::BlinkGraphRaBitQBuilder::Save(std::shared_ptr<Falcon::Common::ShardFormat::BundleFileWriter>)'
+   32 |     virtual bool Save(std::shared_ptr<BundleFileWriter> writer);
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+In file included from linux_falcon_zsq/linux_falcon_zsq_test.cpp:48:
+linux_falcon_zsq/linux_falcon_zsq_test.cpp: In member function 'bool Falcon::Common::ShardFormat::FusionIndex::FalconZSQCompareTest::BuildRaBitQNoBatch(const std::vector<std::shared_ptr<float []> >&)':
+linux_falcon_zsq/linux_falcon_zsq_test.cpp:360:54: error: cannot convert 'std::unique_ptr<Falcon::Common::ShardFormat::BundleFileWriter>' to 'std::shared_ptr<Falcon::Common::ShardFormat::BundleFileWriter>'
+  360 |         RETURN_FALSE_IF_FALSE_WITH_LOG(builder->Save(writer), "RaBitQ NoBatch save failed");
+      |                                                      ^~~~~~
+      |                                                      |
+      |                                                      std::unique_ptr<Falcon::Common::ShardFormat::BundleFileWriter>
+./common/public/utils/common_macro.h:19:41: note: in definition of macro 'UNLIKELY'
+   19 | #define UNLIKELY(x) __builtin_expect(!!(x), 0)
+      |                                         ^
+linux_falcon_zsq/linux_falcon_zsq_test.cpp:360:9: note: in expansion of macro 'RETURN_FALSE_IF_FALSE_WITH_LOG'
+  360 |         RETURN_FALSE_IF_FALSE_WITH_LOG(builder->Save(writer), "RaBitQ NoBatch save failed");
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from linux_falcon_zsq/linux_falcon_zsq_test.cpp:54:
+./common/shard_format/fusion_index/embedding_index/quantizer_index/rabitq_index/rabitq_codec/blink_graph_rabitq_builder.h:32:57: note:   initializing argument 1 of 'virtual bool Falcon::Common::ShardFormat::FusionIndex::BlinkGraphRaBitQBuilder::Save(std::shared_ptr<Falcon::Common::ShardFormat::BundleFileWriter>)'
+   32 |     virtual bool Save(std::shared_ptr<BundleFileWriter> writer);
+      |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+cc1plus: all warnings being treated as errors
+Target //linux_falcon_zsq:linux_falcon_zsq_test failed to build
+Use --verbose_failures to see the command lines of failed build steps.
+INFO: Elapsed time: 420.246s, Critical Path: 237.03s
+INFO: 1614 processes: 677 internal, 937 linux-sandbox.
+FAILED: Build did NOT complete successfully
