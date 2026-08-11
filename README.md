@@ -142,3 +142,40 @@ Recall@10、Recall@100、线程数和搜索参数组合。
 - `qps`
 - `index_parameters`
 - `status` / `note`
+
+
+
+# Debug
+问题已定位并修复：B 机上的三个二进制丢失了 Linux 可执行权限，所以 Python 返回 `Errno 13`，测试实际上尚未启动。
+
+已修改：
+
+- [run_on_b.sh](E:\Graduation\GPTproject\Faiss-zsq\test_all\run_on_b.sh)
+- [README.md](E:\Graduation\GPTproject\Faiss-zsq\test_all\README.md)
+
+新脚本会自动执行 `chmod u+x`，无需重新在 A 机编译。将新版 `run_on_b.sh` 复制到 B 机后运行：
+
+```bash
+cd test_all
+bash run_on_b.sh
+```
+
+也可以先在 B 机直接手动修复：
+
+```bash
+cd test_all
+chmod u+x bin/ann_faiss_benchmark
+chmod u+x bin/ann_hnswlib_benchmark
+chmod u+x bin/ann_ngt_benchmark
+bash run_on_b.sh
+```
+
+若仍然出现 `Permission denied`，执行：
+
+```bash
+findmnt -no TARGET,OPTIONS --target .
+```
+
+如果输出含 `noexec`，说明当前磁盘/共享目录禁止执行程序，需要把整个 `Faiss-zsq` 复制到 B 机允许执行的 Linux 本地目录，再运行脚本。
+
+此次只修复运行权限，没有修改算法，也不需要重新编译。脚本的 Bash 静态语法检查已通过。
